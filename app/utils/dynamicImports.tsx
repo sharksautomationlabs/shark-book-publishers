@@ -23,14 +23,6 @@ export const DynamicImageGallery = dynamic(
   }
 );
 
-export const DynamicPricing = dynamic(
-  () => import('../components/Pricing'),
-  { 
-    loading: () => <LoadingSkeleton height="h-80" />,
-    ssr: false 
-  }
-);
-
 // Utility function for creating dynamic components with loading states
 export const createDynamicComponent = <T extends React.ComponentType<any>>(
   importPath: () => Promise<{ default: T }>,

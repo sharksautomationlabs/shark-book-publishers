@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion, useAnimation, Variants, AnimationControls } from 'framer-motion';
+import { motion, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
 
@@ -69,7 +69,7 @@ declare global {
 }
 
 const PublishingSolution: React.FC = () => {
-  const controls: AnimationControls = useAnimation();
+  const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: false,
     threshold: 0.1,

@@ -1,4 +1,3 @@
-import Header from '../components/ThankYouHeader';
 import EcommerceAutomationExperts from '../components/EcommerceAutomationExperts';
 import CallProcess from '../components/CallProcess';
 import StrategyCall from '../components/StrategyCall';
@@ -12,6 +11,7 @@ export default function EcommerceAutomationPage() {
   // Custom testimonials for this page
   const customTestimonials = [
     {
+      id: "john-smith",
       name: "John Smith",
       subtitle: "Successful Investor",
       review: "I was skeptical at first, but Ecom Sharks delivered exactly what they promised. My store is truly hands-off and the returns are amazing. It's a game-changer!",
@@ -21,6 +21,7 @@ export default function EcommerceAutomationPage() {
       profileImage: "/images/Dummy-profile/Alex-Chen.png"
     },
     {
+      id: "sarah-lee",
       name: "Sarah Lee",
       subtitle: "Entrepreneur",
       review: "The passive income is real! I've been able to focus on my main job while my e-commerce store generates profit in the background. Couldn't be happier with the results.",
@@ -30,6 +31,7 @@ export default function EcommerceAutomationPage() {
       profileImage: "/images/Dummy-profile/Amanda-Foster.png"
     },
     {
+      id: "michael-rodriguez-ecom",
       name: "Michael Rodriguez",
       subtitle: "Business Owner",
       review: "Ecom Sharks transformed my business completely. The automation system works flawlessly and I'm seeing consistent profits every month. Best investment I've ever made!",
