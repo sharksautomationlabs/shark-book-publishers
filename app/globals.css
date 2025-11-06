@@ -1,0 +1,425 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-barlow);
+  --font-mono: var(--font-barlow-condensed);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Floating animations for logos */
+@keyframes float-amazon {
+  0%, 100% {
+    transform: translateY(0px) rotate(12deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(12deg);
+  }
+}
+
+@keyframes float-shopify {
+  0%, 100% {
+    transform: translateY(0px) rotate(-12deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(-12deg);
+  }
+}
+
+@keyframes float-tiktok {
+  0%, 100% {
+    transform: translateY(0px) rotate(12deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(12deg);
+  }
+}
+
+@keyframes float-walmart {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0deg);
+  }
+}
+
+.animate-float-amazon {
+  animation: float-amazon 4s ease-in-out infinite 1s;
+}
+
+.animate-float-shopify {
+  animation: float-shopify 5s ease-in-out infinite 1s;
+}
+
+.animate-float-tiktok {
+  animation: float-tiktok 4.5s ease-in-out infinite 1s;
+}
+
+.animate-float-walmart {
+  animation: float-walmart 3.5s ease-in-out infinite 1s;
+}
+
+/* Shark leaning and swimming animation */
+@keyframes shark-lean {
+  0%, 100% {
+    transform: rotate(-2deg) translateX(-10px);
+  }
+  50% {
+    transform: rotate(2deg) translateX(10px);
+  }
+}
+
+.animate-shark-lean {
+  animation: shark-lean 4s ease-in-out infinite;
+}
+
+/* Complete shark motion class with lean and slow scroll movement */
+.animate-shark-complete {
+  animation: shark-lean 6s ease-in-out infinite;
+  transition: all 700ms ease-out;
+}
+
+.animate-shark-complete:hover {
+  transform: translateX(10px);
+}
+
+/* Diagonal flash beam effect for service cards */
+@keyframes diagonal-flash-beam {
+  0% {
+    transform: translateX(-100%) translateY(100%) rotate(45deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) translateY(-100%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.service-card-flash {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.service-card-flash::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 20px;
+  background: linear-gradient(45deg, 
+    transparent 0%, 
+    transparent 20%, 
+    rgba(255, 255, 255, 0.8) 40%, 
+    rgba(255, 255, 255, 1) 50%, 
+    rgba(255, 255, 255, 0.8) 60%, 
+    transparent 80%, 
+    transparent 100%
+  );
+  transform: translateX(-100%) translateY(100%) rotate(45deg);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+  filter: blur(1px);
+}
+
+.service-card-flash:hover {
+  transform: scale(0.95);
+}
+
+.service-card-flash:hover::before {
+  animation: diagonal-flash-beam 0.8s ease-out;
+}
+
+/* Header Animations */
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.8s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes logo-fade-in-amazon {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) rotate(12deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) rotate(12deg);
+  }
+}
+
+@keyframes logo-fade-in-shopify {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) rotate(-12deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) rotate(-12deg);
+  }
+}
+
+@keyframes logo-fade-in-tiktok {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) rotate(12deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) rotate(12deg);
+  }
+}
+
+@keyframes logo-fade-in-walmart {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fade-in 1s ease-out forwards;
+}
+
+.logo-fade-in-amazon {
+  opacity: 0;
+  animation: logo-fade-in-amazon 2s ease-out forwards, float-amazon 4s ease-in-out infinite 1s;
+}
+
+.logo-fade-in-shopify {
+  opacity: 0;
+  animation: logo-fade-in-shopify 2s ease-out forwards, float-shopify 5s ease-in-out infinite 1s;
+}
+
+.logo-fade-in-tiktok {
+  opacity: 0;
+  animation: logo-fade-in-tiktok 2s ease-out forwards, float-tiktok 4.5s ease-in-out infinite 1s;
+}
+
+.logo-fade-in-walmart {
+  opacity: 0;
+  animation: logo-fade-in-walmart 2s ease-out forwards, float-walmart 3.5s ease-in-out infinite 1s;
+}
+
+/* ============================================
+
+   BOOK EDITING STYLES
+
+   ============================================
+
+   All styles for book editing component
+
+   ============================================ */
+
+.our-services-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  text-transform: capitalize;
+  font-size: 75px;
+  line-height: 85px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 60px;
+}
+
+.book-title {
+  font-family: Barlow Condensed;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  font-size: 40px;
+  line-height: 0.3em;
+  font-weight: 600;
+  color: #063f4a;
+}
+
+.book-description {
+  color: #2c2420;
+  width: 540px;
+  font-size: 35px;
+  font-weight: 100;
+  line-height: 1.2em;
+  font-family: barlow !important;
+}
+
+/* Read More Button */
+a#butt-sec {
+  background: #35c4dd;
+  color: #063f4a;
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 45px 8px 20px;
+  border-radius: 50px;
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+a#butt-sec span {
+  position: relative;
+  z-index: 2;
+}
+
+a#butt-sec::before {
+  content: '';
+  position: absolute;
+  right: 6px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+a#butt-sec:hover::before {
+  width: 100%;
+  height: 100%;
+  right: 0;
+  border-radius: 50px;
+}
+
+a#butt-sec:hover {
+  color: #063f4a !important;
+  box-shadow: 0 10px 25px rgb(0 0 0 / 0.15);
+  transform: translateY(-2px);
+}
+
+/* Get Started / Live Chat Button */
+a#bt-sec {
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 8px 40px 8px 25px;
+  border: 2px solid #35c4dd;
+  background: #fff;
+  color: #000;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+a#bt-sec i {
+  background: #063f4a;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 15px;
+  position: absolute;
+  right: 6px;
+  transition: all 0.4s ease;
+}
+
+a#bt-sec:hover {
+  background: #35c4dd;
+  color: #063f4a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgb(0 0 0 / 0.15);
+}
+
+a#bt-sec:hover i {
+  background: #fff;
+  color: #063f4a;
+}
+
+.animate-float-strong {
+  animation: floatStrong 4s ease-in-out infinite;
+}
+
+@keyframes floatStrong {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+
+   END BOOK EDITING STYLES
+
+   ============================================ */
