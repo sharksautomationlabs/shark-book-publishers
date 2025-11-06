@@ -302,12 +302,23 @@ export default function AwardWinningSection({
                       </div>
                   </div>
                   <div
-                    className="absolute w-[60%] h-auto top-[55%] right-[20%] z-10 animate-hand-pivot"
+                    className="absolute w-[60%] top-[45%] right-[22%] z-10 animate-hand-pivot"
                     style={{
                       transformOrigin: '100% 50%', // right edge as pivot
                     }}
                   >
-                    <Image src={imgHand1} alt="Hand" width={200000} height={200000} className="object-contain" />
+                    <div className="relative w-full min-h-[300px] lg:min-h-[500px]">
+                      <Image 
+                        src={imgHand1} 
+                        alt="Hand" 
+                        fill
+                        className="object-contain" 
+                        priority
+                        sizes="(max-width: 768px) 60vw, 40vw"
+                        quality={90}
+                        loading="eager"
+                      />
+                    </div>
                   </div>
                    <style jsx global>{`
                        @keyframes float { 
