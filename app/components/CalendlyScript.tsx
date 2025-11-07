@@ -10,7 +10,7 @@ export default function CalendlyScript() {
       onLoad={() => {
         if (typeof window !== 'undefined' && (window as any).Calendly) {
           (window as any).Calendly.initBadgeWidget({ 
-            url: 'https://calendly.com/ecomsharkss-info/30min', 
+            url: 'https://calendly.com/contact-sharksbookpublishers/30min', 
             text: 'Call for free', 
             color: '#35c4dd', 
             textColor: '#ffffff', 

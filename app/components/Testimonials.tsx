@@ -177,7 +177,7 @@ export default function Testimonials({ testimonials: customTestimonials }: Testi
               
               {/* Read More Button */}
               <Link 
-                href={`/amazon?id=${testimonial.id || index}`}
+                href={`/testimonials?id=${testimonial.id || index}`}
                 className="mt-auto text-[#35c4dd] font-semibold text-sm lg:text-base transition-colors duration-200"
               >
                 Read More →
@@ -195,7 +195,7 @@ export default function Testimonials({ testimonials: customTestimonials }: Testi
             animate={controls}
           >
             <Link 
-              href="/amazon"
+              href="/testimonials"
               className="group flex items-center justify-between w-[150px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2 mx-auto"
             >
               <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>See All</span>

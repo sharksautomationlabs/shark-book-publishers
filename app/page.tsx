@@ -1,4 +1,6 @@
 import Header from './components/Header';
+import TickerTape from './components/TickerTape';
+import TickerTape2 from './components/TickerTape2';
 import Services from './components/Services';
 import Mission from './components/Mission';
 import Quote from './components/Qoute';
@@ -8,7 +10,7 @@ import Testimonials from './components/Testimonials';
 import AuthorsSection from './components/AuthorsSection';
 import Owners from './components/Owners';
 // import Careers from './components/careers';
-import Opportunities from './components/opportunities';
+
 import AwardWinning from './components/AwardWinning';
 import NewsEvents from './components/NewsEvents';
 import BookCategories from './components/BookCategories';
@@ -20,8 +22,10 @@ export default function Home() {
     <div className="w-full bg-white overflow-x-hidden">
       {/* Header includes both header navigation and hero sections as per Figma design */}
       <Header />
+      <TickerTape />
       <Experts />
       <BookEditing />
+      <TickerTape2 />
       <AuthorsSection />
       <Testimonials />
       <Mission />
@@ -31,7 +35,6 @@ export default function Home() {
       <Owners />
       <Services />
       <NewsEvents />
-      <Opportunities />
       <Footer />
       {/* <Careers /> */}
     </div>

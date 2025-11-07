@@ -3,7 +3,7 @@
 import { useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { User } from 'lucide-react';
-import Header from '../components/Header';
+import AmazonHeader from '../components/AmazonHeader';
 import Footer from '../components/Footer';
 import { allTestimonials } from '../components/testimonials-data';
 
@@ -54,7 +54,6 @@ function TestimonialsContent() {
 
   useEffect(() => {
     if (selectedId) {
-      // Scroll to the testimonial section after a short delay
       setTimeout(() => {
         const element = document.getElementById(`testimonial-${selectedId}`);
         if (element) {
@@ -69,7 +68,7 @@ function TestimonialsContent() {
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
         <div className="text-center mb-12">
-          <h1 
+          <h1
             className="text-4xl lg:text-6xl font-extrabold mb-4 text-black"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
@@ -128,13 +127,15 @@ function TestimonialsContent() {
 
 export default function TestimonialsPage() {
   return (
-    <div className="w-full bg-white min-h-screen">
-      <Header />
-      <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><p>Loading...</p></div>}>
+    <div className="w-full bg-white overflow-x-hidden">
+      <AmazonHeader 
+        heroTitle="Client Testimonials"
+        heroSubtitle="Real stories from authors who've transformed their dreams into published books with us."
+      />
+      <Suspense fallback={<div>Loading...</div>}>
         <TestimonialsContent />
       </Suspense>
       <Footer />
     </div>
   );
 }
-

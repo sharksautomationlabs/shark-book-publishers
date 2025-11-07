@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const imgChatCircleDots = "/images/chat-icon.svg";
@@ -62,24 +63,15 @@ const services: Service[] = [
 
 // Reusable Button Component matching Experts section
 const GetQuoteButton = () => (
-  <button 
+  <Link 
+    href="/services"
     className="group flex items-center justify-between w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
-    onClick={() => {
-      if (typeof window !== 'undefined' && (window as any).Calendly) {
-        (window as any).Calendly.initPopupWidget({
-          url: 'https://calendly.com/ecomsharkss-info/30min',
-          onEventScheduled: function(e: any) {
-            window.location.href = '/thank-you';
-          }
-        });
-      }
-    }}
   >
     <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Read More</span>
     <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-2">
     </span>
     <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
-  </button>
+  </Link>
 );
 
 // Live Chat Button matching Header section

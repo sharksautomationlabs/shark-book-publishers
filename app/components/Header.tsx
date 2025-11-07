@@ -37,6 +37,7 @@ const imgBooks = "/images/books.webp";
 const imgBooks1 = "/images/books1.webp";
 const img72 = "/images/book-hand.png";
 const imgTrustpilot = "/images/trust-pilot.jpg";
+const imgBark = "/images/bark1.jpg";
 
 interface HeaderProps {
   heroTitle?: string;
@@ -45,7 +46,7 @@ interface HeaderProps {
 }
 
 export default function Header({ 
-  heroTitle = "Guaranteed Sales & Publishing in 72 Hours or We'll Work For Free!",
+  heroTitle = "Assured Sales & Publishing in 24 Hours or We'll Work For Free!",
   heroSubtitle = "Keep scrolling—your path to financial freedom is just ahead. By the time you've explored 25% of this page, you'll discover the hidden gem that could change your life.",
   topNavText = "Professional Book Publishing Services"
 }: HeaderProps) {
@@ -142,37 +143,26 @@ export default function Header({
                 <div className="w-[200px] h-[145px] md:w-[220px] md:h-[165px] lg:w-[260px] lg:h-[195px] relative fade-in -ml-1 lg:-ml-1">
                     <Image src={imgImage1} alt="Shark Book Publishers Logo" fill className="object-contain" priority />
                 </div>
-                <div className="hidden lg:flex w-[1080px] h-[100px] bg-white/20 backdrop-blur-sm rounded-2xl items-center justify-end px-10 gap-8 border-2 border-white">
+                <div className="hidden lg:flex w-[980px] h-[95px] bg-white/20 backdrop-blur-sm rounded-2xl items-center justify-end px-9 gap-7 border-2 border-white">
                     <div className="flex items-center gap-5 text-white text-[18px] font-medium" style={{ fontFamily: "'Barlow', sans-serif" }}>
                         <Link href="/" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Home</Link>
                         <Link href="/about" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>About Us</Link>
-                        <Link href="/amazon" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Testimonials</Link>
-                        <Link href="/shopify" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Books</Link>
+                        <Link href="/testimonials" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Testimonials</Link>
+                        <Link href="/books" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Books</Link>
                         <Link href="/services" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Services</Link>
-                        <Link href="/tiktok" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Authors</Link>
-                        <Link href="/walmart" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>News & Events</Link>
-                        <Link href="/identity" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Careers</Link>
+                        <Link href="/authors" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Authors</Link>
+                        <Link href="/news-events" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>News & Events</Link>
                         <Link href="/contact" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Contact</Link>
                     </div>
-                     <button 
+                     <Link 
+                        href="/contact"
                         className="group flex items-center justify-between w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
-                        onClick={() => {
-                          if (typeof window !== 'undefined' && (window as any).Calendly) {
-                            (window as any).Calendly.initPopupWidget({
-                              url: 'https://calendly.com/ecomsharkss-info/30min',
-                              onEventScheduled: function(e: any) {
-                                // Redirect to thank you page when appointment is scheduled
-                                window.location.href = '/thank-you';
-                              }
-                            });
-                          }
-                        }}
                      >
                         <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Get Started</span>
                         <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-2">
                         </span>
                         <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
-                    </button>
+                    </Link>
                 </div>
                 <div className="lg:hidden">
                     <button 
@@ -255,7 +245,7 @@ export default function Header({
                       About Us
                     </Link>
                     <Link 
-                      href="/amazon" 
+                      href="/testimonials" 
                       className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
@@ -263,7 +253,7 @@ export default function Header({
                       Testimonials
                     </Link>
                     <Link 
-                      href="/shopify" 
+                      href="/books" 
                       className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
@@ -279,7 +269,7 @@ export default function Header({
                       Services
                     </Link>
                     <Link 
-                      href="/tiktok" 
+                      href="/authors" 
                       className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
@@ -287,20 +277,12 @@ export default function Header({
                       Authors
                     </Link>
                     <Link 
-                      href="/walmart" 
+                      href="/news-events" 
                       className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
                     >
                       News & Events
-                    </Link>
-                    <Link 
-                      href="/identity" 
-                      className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
-                      style={{ fontFamily: "'Barlow', sans-serif" }}
-                      onClick={() => setIsMobileNavOpen(false)}
-                    >
-                      Careers
                     </Link>
                     <Link 
                       href="/contact" 
@@ -315,26 +297,16 @@ export default function Header({
 
                 {/* Action Buttons */}
                 <div className="px-6 py-4 border-t border-white/20 space-y-3">
-                  <button 
+                  <Link 
+                    href="/contact"
                     className="group flex items-center justify-between w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
-                    onClick={() => {
-                      setIsMobileNavOpen(false);
-                      if (typeof window !== 'undefined' && (window as any).Calendly) {
-                        (window as any).Calendly.initPopupWidget({
-                          url: 'https://calendly.com/ecomsharkss-info/30min',
-                          onEventScheduled: function(e: any) {
-                            // Redirect to thank you page when appointment is scheduled
-                            window.location.href = '/thank-you';
-                          }
-                        });
-                      }
-                    }}
+                    onClick={() => setIsMobileNavOpen(false)}
                   >
                     <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Get Started</span>
                     <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-2">
                     </span>
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
-                  </button>
+                  </Link>
                   
                   <button 
                     className="w-full flex items-center justify-between bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg"
@@ -370,34 +342,34 @@ export default function Header({
                   )}
                 </>
               ) : (() => {
-                // Handle "72 Hours" first
-                if (heroTitle.includes('72 Hours')) {
-                  const before72 = heroTitle.split('72 Hours')[0];
-                  const after72 = heroTitle.split('72 Hours')[1];
+                // Handle "24 Hours" first
+                if (heroTitle.includes('24 Hours')) {
+                  const before24 = heroTitle.split('24 Hours')[0];
+                  const after24 = heroTitle.split('24 Hours')[1];
                   // Check if "Free" is in the remaining text
-                  if (after72.includes('Free')) {
-                    const beforeFree = after72.split('Free')[0];
-                    const afterFree = after72.split('Free')[1];
-                    return <>{before72}<span className="text-[#35c4dd] font-bold">72 Hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">Free</span>{afterFree}</>;
-                  } else if (after72.includes('free')) {
-                    const beforeFree = after72.split('free')[0];
-                    const afterFree = after72.split('free')[1];
-                    return <>{before72}<span className="text-[#35c4dd] font-bold">72 Hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">free</span>{afterFree}</>;
+                  if (after24.includes('Free')) {
+                    const beforeFree = after24.split('Free')[0];
+                    const afterFree = after24.split('Free')[1];
+                    return <>{before24}<span className="text-[#35c4dd] font-bold">24 Hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">Free</span>{afterFree}</>;
+                  } else if (after24.includes('free')) {
+                    const beforeFree = after24.split('free')[0];
+                    const afterFree = after24.split('free')[1];
+                    return <>{before24}<span className="text-[#35c4dd] font-bold">24 Hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">free</span>{afterFree}</>;
                   }
-                  return <>{before72}<span className="text-[#35c4dd] font-bold">72 Hours</span>{after72}</>;
-                } else if (heroTitle.includes('72 hours')) {
-                  const before72 = heroTitle.split('72 hours')[0];
-                  const after72 = heroTitle.split('72 hours')[1];
-                  if (after72.includes('Free')) {
-                    const beforeFree = after72.split('Free')[0];
-                    const afterFree = after72.split('Free')[1];
-                    return <>{before72}<span className="text-[#35c4dd] font-bold">72 hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">Free</span>{afterFree}</>;
-                  } else if (after72.includes('free')) {
-                    const beforeFree = after72.split('free')[0];
-                    const afterFree = after72.split('free')[1];
-                    return <>{before72}<span className="text-[#35c4dd] font-bold">72 hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">free</span>{afterFree}</>;
+                  return <>{before24}<span className="text-[#35c4dd] font-bold">24 Hours</span>{after24}</>;
+                } else if (heroTitle.includes('24 hours')) {
+                  const before24 = heroTitle.split('24 hours')[0];
+                  const after24 = heroTitle.split('24 hours')[1];
+                  if (after24.includes('Free')) {
+                    const beforeFree = after24.split('Free')[0];
+                    const afterFree = after24.split('Free')[1];
+                    return <>{before24}<span className="text-[#35c4dd] font-bold">24 hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">Free</span>{afterFree}</>;
+                  } else if (after24.includes('free')) {
+                    const beforeFree = after24.split('free')[0];
+                    const afterFree = after24.split('free')[1];
+                    return <>{before24}<span className="text-[#35c4dd] font-bold">24 hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">free</span>{afterFree}</>;
                   }
-                  return <>{before72}<span className="text-[#35c4dd] font-bold">72 hours</span>{after72}</>;
+                  return <>{before24}<span className="text-[#35c4dd] font-bold">24 hours</span>{after24}</>;
                 } else if (heroTitle.includes('Free')) {
                   const parts = heroTitle.split('Free');
                   return <>{parts[0]}<span className="text-[#35c4dd] font-bold">Free</span>{parts[1]}</>;
@@ -409,18 +381,18 @@ export default function Header({
               })()}
             </h1>
              <p className="hidden lg:block mt-8 text-white text-[18px] leading-[28px] max-w-[685px] font-medium" style={{ fontFamily: "'Barlow', sans-serif", ...textShadow }}>
-               Focus on your idea while we take care of writing, editing, design and publishing, all within 72 hours.
+               Focus on your idea while we take care of writing, editing, design and publishing, all within 24 hours.
              </p>
             <div className="hidden lg:flex items-center gap-6 mt-12">
-            <a 
-              href="tel:4694807938"
+            <Link 
+              href="/contact"
               className="group flex items-center justify-between w-[220px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
             >
                 <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Publish My Book</span>
                 <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10">
                 </span>
                 <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
-              </a>
+              </Link>
               <button className="flex items-center justify-between w-[170px] h-[52px] bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg">
                   <span className="pl-5 text-[#063f4a] font-bold text-xl" style={{ fontFamily: "'Barlow', sans-serif" }}>Live Chat</span>
                   <div className="w-[40px] h-[40px] bg-[#063f4a] rounded-full flex items-center justify-center">
@@ -428,22 +400,28 @@ export default function Header({
                   </div>
               </button>
             </div>
-            <div className="hidden lg:block mt-3 ml-2">
-              <a href="https://www.trustpilot.com/review/ecomsharkss.com" target="_blank" rel="noopener noreferrer">
+            <div className="hidden lg:flex items-center gap-3 mt-3 ml-2">
+              <a href="https://www.trustpilot.com/review/sharksbookpublishers.com" target="_blank" rel="noopener noreferrer">
                 <Image src={imgTrustpilot} alt="Trustpilot" width={80} height={24} className="object-contain cursor-pointer hover:opacity-80 transition-opacity" />
+              </a>
+              <a href="https://www.bark.com/en/us/company/sharks-book-publishers-/bvbAb3/?review_source=share_link" target="_blank" rel="noopener noreferrer">
+                <Image src={imgBark} alt="Bark" width={50} height={15} className="object-contain cursor-pointer hover:opacity-80 transition-opacity" />
               </a>
             </div>
              <div className="mt-8 lg:hidden">
-                <a 
-                  href="tel:+14694527618"
+                <Link 
+                  href="/contact"
                   className="bg-[#35c4dd] text-[#063f4a] font-bold py-2 px-2 rounded-full text-base w-[160px] flex items-center justify-between shadow-lg"
                 >
                     <span className="pl-3" style={{ fontFamily: "'Barlow', sans-serif" }}>Contact Us</span>
     
-                </a>
-                <div className="mt-4 ml-1">
-                  <a href="https://www.trustpilot.com/review/ecomsharkss.com" target="_blank" rel="noopener noreferrer">
+                </Link>
+                <div className="flex items-center gap-2 mt-4 ml-1">
+                  <a href="https://www.trustpilot.com/review/sharksbookpublishers.com" target="_blank" rel="noopener noreferrer">
                     <Image src={imgTrustpilot} alt="Trustpilot" width={50} height={15} className="object-contain cursor-pointer hover:opacity-80 transition-opacity" />
+                  </a>
+                  <a href="https://www.bark.com/en/us/company/sharks-book-publishers-/bvbAb3/?review_source=share_link" target="_blank" rel="noopener noreferrer">
+                    <Image src={imgBark} alt="Bark" width={35} height={10} className="object-contain cursor-pointer hover:opacity-80 transition-opacity" />
                   </a>
                 </div>
             </div>

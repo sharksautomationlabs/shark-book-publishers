@@ -221,12 +221,11 @@ function BlogDetailContent({ params }: { params: { id: string } }) {
                             <div className="flex items-center gap-5 text-white text-[18px] font-medium" style={{ fontFamily: "'Barlow', sans-serif" }}>
                                 <Link href="/" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Home</Link>
                                 <Link href="/about" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>About Us</Link>
-                                <Link href="/amazon" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Testimonials</Link>
-                                <Link href="/shopify" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Books</Link>
+                                <Link href="/testimonials" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Testimonials</Link>
+                                <Link href="/books" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Books</Link>
                                 <Link href="/services" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Services</Link>
-                                <Link href="/tiktok" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Authors</Link>
-                                <Link href="/walmart" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>News & Events</Link>
-                                <Link href="/identity" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Careers</Link>
+                                <Link href="/authors" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Authors</Link>
+                                <Link href="/news-events" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>News & Events</Link>
                                 <Link href="/contact" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Contact</Link>
                             </div>
                             <button 
@@ -234,7 +233,7 @@ function BlogDetailContent({ params }: { params: { id: string } }) {
                                 onClick={() => {
                                     if (typeof window !== 'undefined' && (window as any).Calendly) {
                                         (window as any).Calendly.initPopupWidget({
-                                            url: 'https://calendly.com/ecomsharkss-info/30min',
+                                            url: 'https://calendly.com/contact-sharksbookpublishers/30min',
                                             onEventScheduled: function(e: any) {
                                                 window.location.href = '/thank-you';
                                             }

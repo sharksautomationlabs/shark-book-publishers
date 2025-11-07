@@ -235,7 +235,7 @@ export default function Owners() {
                   onClick={() => {
                     if (typeof window !== 'undefined' && (window as any).Calendly) {
                       (window as any).Calendly.initPopupWidget({
-                        url: 'https://calendly.com/ecomsharkss-info/30min',
+                        url: 'https://calendly.com/contact-sharksbookpublishers/30min',
                         onEventScheduled: function(e: any) {
                           // Redirect to thank you page when appointment is scheduled
                           window.location.href = '/thank-you';

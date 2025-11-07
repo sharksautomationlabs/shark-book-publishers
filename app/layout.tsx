@@ -27,13 +27,13 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ecomsharks.com'),
-  title: "ECOM SHARKS - Ecommerce Solutions for Amazon, Shopify, TikTok & Walmart",
-  description: "Empower your ecommerce business with ECOM SHARKS. Expert solutions for Amazon, Shopify, TikTok, and Walmart. Scale smarter, sell faster with our dedicated team.",
-  keywords: ["ecommerce", "amazon fba", "shopify", "tiktok shop", "walmart marketplace", "online selling", "digital marketing"],
-  authors: [{ name: "ECOM SHARKS" }],
-  creator: "ECOM SHARKS",
-  publisher: "ECOM SHARKS",
+  metadataBase: new URL('https://sharksbookpublishers.com'),
+  title: "Sharks Book Publishers - Professional Book Publishing Services",
+  description: "Transform your manuscript into a published book with Sharks Book Publishers. Expert book editing, cover design, formatting, distribution, and marketing services. Get published in 72 hours or we work for free!",
+  keywords: ["book publishing", "book editing", "cover design", "book formatting", "book distribution", "self publishing", "book marketing", "publishing services", "author services", "book publishing company"],
+  authors: [{ name: "Sharks Book Publishers" }],
+  creator: "Sharks Book Publishers",
+  publisher: "Sharks Book Publishers",
   robots: {
     index: true,
     follow: true,
@@ -48,23 +48,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://ecomsharks.com',
-    title: 'ECOM SHARKS - Ecommerce Solutions',
-    description: 'Empower your ecommerce business with ECOM SHARKS. Expert solutions for Amazon, Shopify, TikTok, and Walmart.',
-    siteName: 'ECOM SHARKS',
+    url: 'https://sharksbookpublishers.com',
+    title: 'Sharks Book Publishers - Professional Book Publishing Services',
+    description: 'Transform your manuscript into a published book with Sharks Book Publishers. Expert book editing, cover design, formatting, distribution, and marketing services.',
+    siteName: 'Sharks Book Publishers',
     images: [
       {
         url: '/favicon.ico',
         width: 32,
         height: 32,
-        alt: 'ECOM SHARKS - Ecommerce Solutions',
+        alt: 'Sharks Book Publishers - Professional Book Publishing Services',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ECOM SHARKS - Ecommerce Solutions',
-    description: 'Empower your ecommerce business with ECOM SHARKS. Expert solutions for Amazon, Shopify, TikTok, and Walmart.',
+    title: 'Sharks Book Publishers - Professional Book Publishing Services',
+    description: 'Transform your manuscript into a published book with Sharks Book Publishers. Expert book editing, cover design, formatting, distribution, and marketing services.',
     images: ['/favicon.ico'],
   },
   icons: {

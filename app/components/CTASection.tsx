@@ -28,7 +28,7 @@ export default function CTASection() {
           const widgetElement = document.querySelector('.calendly-inline-widget');
           if (widgetElement && !widgetElement.hasChildNodes()) {
             (window as any).Calendly.initInlineWidget({
-              url: 'https://calendly.com/ecomsharkss-info/30min',
+              url: 'https://calendly.com/contact-sharksbookpublishers/30min',
               parentElement: widgetElement,
               prefill: {},
               utm: {},
@@ -110,7 +110,7 @@ export default function CTASection() {
             {isClient ? (
               <div 
                 className="calendly-inline-widget" 
-                data-url="https://calendly.com/ecomsharkss-info/30min"
+                data-url="https://calendly.com/contact-sharksbookpublishers/30min"
                 style={{ minWidth: '320px', height: '700px' }}
               ></div>
             ) : (

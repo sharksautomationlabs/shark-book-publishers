@@ -122,7 +122,7 @@ const PublishingSolution: React.FC = () => {
   const handleGetQuote = (): void => {
     if (typeof window !== 'undefined' && window.Calendly) {
       window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/ecomsharkss-info/30min',
+        url: 'https://calendly.com/contact-sharksbookpublishers/30min',
         onEventScheduled: function(e: any) {
           window.location.href = '/thank-you';
         }

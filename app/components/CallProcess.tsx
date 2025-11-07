@@ -32,7 +32,7 @@ const GetQuoteButton = ({ small = false }: { small?: boolean }) => (
     onClick={() => {
       if (typeof window !== 'undefined' && (window as any).Calendly) {
         (window as any).Calendly.initPopupWidget({
-          url: 'https://calendly.com/ecomsharkss-info/30min'
+          url: 'https://calendly.com/contact-sharksbookpublishers/30min'
         });
 
         // Add event listener for Calendly events

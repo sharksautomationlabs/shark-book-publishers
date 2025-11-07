@@ -221,7 +221,7 @@ export default function ThankYouHeader({
               onClick={() => {
                 if (typeof window !== 'undefined' && (window as any).Calendly) {
                   (window as any).Calendly.initPopupWidget({
-                    url: 'https://calendly.com/ecomsharkss-info/30min',
+                    url: 'https://calendly.com/contact-sharksbookpublishers/30min',
                     onEventScheduled: function(e: any) {
                       // Redirect to thank you page when appointment is scheduled
                       window.location.href = '/thank-you';
@@ -238,7 +238,7 @@ export default function ThankYouHeader({
               </button>
             </div>
             <div className="hidden lg:block mt-3 ml-2">
-              <a href="https://www.trustpilot.com/review/ecomsharkss.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.trustpilot.com/review/sharksbookpublishers.com" target="_blank" rel="noopener noreferrer">
                 <Image src={imgTrustpilot} alt="Trustpilot" width={80} height={24} className="object-contain cursor-pointer hover:opacity-80 transition-opacity" />
               </a>
             </div>
@@ -248,7 +248,7 @@ export default function ThankYouHeader({
                   onClick={() => {
                     if (typeof window !== 'undefined' && (window as any).Calendly) {
                       (window as any).Calendly.initPopupWidget({
-                        url: 'https://calendly.com/ecomsharkss-info/30min',
+                        url: 'https://calendly.com/contact-sharksbookpublishers/30min',
                         onEventScheduled: function(e: any) {
                           // Redirect to thank you page when appointment is scheduled
                           window.location.href = '/thank-you';
@@ -263,7 +263,7 @@ export default function ThankYouHeader({
                     </span>
                 </button>
                 <div className="mt-4 ml-1">
-                  <a href="https://www.trustpilot.com/review/ecomsharkss.com" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.trustpilot.com/review/sharksbookpublishers.com" target="_blank" rel="noopener noreferrer">
                     <Image src={imgTrustpilot} alt="Trustpilot" width={50} height={15} className="object-contain cursor-pointer hover:opacity-80 transition-opacity" />
                   </a>
                 </div>

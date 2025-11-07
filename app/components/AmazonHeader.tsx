@@ -142,33 +142,22 @@ export default function AmazonHeader({
                     <div className="flex items-center gap-5 text-white text-[18px] font-medium" style={{ fontFamily: "'Barlow', sans-serif" }}>
                         <Link href="/" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Home</Link>
                         <Link href="/about" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>About Us</Link>
-                        <Link href="/amazon" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Testimonials</Link>
-                        <Link href="/shopify" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Books</Link>
+                        <Link href="/testimonials" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Testimonials</Link>
+                        <Link href="/books" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Books</Link>
                         <Link href="/services" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Services</Link>
-                        <Link href="/tiktok" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Authors</Link>
-                        <Link href="/walmart" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>News & Events</Link>
-                        <Link href="/identity" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Careers</Link>
+                        <Link href="/authors" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Authors</Link>
+                        <Link href="/news-events" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>News & Events</Link>
                         <Link href="/contact" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Contact</Link>
                     </div>
-                     <button 
+                     <Link 
+                        href="/contact"
                         className="group flex items-center justify-between w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
-                        onClick={() => {
-                          if (typeof window !== 'undefined' && (window as any).Calendly) {
-                            (window as any).Calendly.initPopupWidget({
-                              url: 'https://calendly.com/ecomsharkss-info/30min',
-                              onEventScheduled: function(e: any) {
-                                // Redirect to thank you page when appointment is scheduled
-                                window.location.href = '/thank-you';
-                              }
-                            });
-                          }
-                        }}
                      >
                         <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Get Started</span>
                         <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-2">
                         </span>
                         <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
-                    </button>
+                    </Link>
                 </div>
                 <div className="lg:hidden">
                     <button 
@@ -251,7 +240,7 @@ export default function AmazonHeader({
                       About Us
                     </Link>
                     <Link 
-                      href="/amazon" 
+                      href="/testimonials" 
                       className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
@@ -259,7 +248,7 @@ export default function AmazonHeader({
                       Testimonials
                     </Link>
                     <Link 
-                      href="/shopify" 
+                      href="/books" 
                       className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
@@ -275,7 +264,7 @@ export default function AmazonHeader({
                       Services
                     </Link>
                     <Link 
-                      href="/tiktok" 
+                      href="/authors" 
                       className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
@@ -283,20 +272,12 @@ export default function AmazonHeader({
                       Authors
                     </Link>
                     <Link 
-                      href="/walmart" 
+                      href="/news-events" 
                       className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
                     >
                       News & Events
-                    </Link>
-                    <Link 
-                      href="/identity" 
-                      className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
-                      style={{ fontFamily: "'Barlow', sans-serif" }}
-                      onClick={() => setIsMobileNavOpen(false)}
-                    >
-                      Careers
                     </Link>
                     <Link 
                       href="/contact" 
@@ -311,26 +292,16 @@ export default function AmazonHeader({
 
                 {/* Action Buttons */}
                 <div className="px-6 py-4 border-t border-white/20 space-y-3">
-                  <button 
+                  <Link 
+                    href="/contact"
                     className="group flex items-center justify-between w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
-                    onClick={() => {
-                      setIsMobileNavOpen(false);
-                      if (typeof window !== 'undefined' && (window as any).Calendly) {
-                        (window as any).Calendly.initPopupWidget({
-                          url: 'https://calendly.com/ecomsharkss-info/30min',
-                          onEventScheduled: function(e: any) {
-                            // Redirect to thank you page when appointment is scheduled
-                            window.location.href = '/thank-you';
-                          }
-                        });
-                      }
-                    }}
+                    onClick={() => setIsMobileNavOpen(false)}
                   >
                     <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Get Started</span>
                     <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-2">
                     </span>
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
-                  </button>
+                  </Link>
                   
                   <button 
                     className="w-full flex items-center justify-between bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg"
