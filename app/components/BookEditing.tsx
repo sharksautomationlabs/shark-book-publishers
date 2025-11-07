@@ -76,7 +76,14 @@ const GetQuoteButton = () => (
 
 // Live Chat Button matching Header section
 const LiveChatButton = () => (
-  <button className="flex items-center justify-between w-[170px] h-[52px] bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg">
+  <button 
+    className="flex items-center justify-between w-[170px] h-[52px] bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg"
+    onClick={() => {
+      if (typeof window !== 'undefined' && (window as any).Tawk_API) {
+        (window as any).Tawk_API.maximize();
+      }
+    }}
+  >
     <span className="pl-5 text-[#063f4a] font-bold text-xl" style={{ fontFamily: "'Barlow', sans-serif" }}>Live Chat</span>
     <div className="w-[40px] h-[40px] bg-[#063f4a] rounded-full flex items-center justify-center">
       <Image src={imgChatCircleDots} alt="chat icon" width={24} height={24} />

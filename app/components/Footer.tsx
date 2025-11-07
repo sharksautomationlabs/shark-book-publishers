@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { sendContactEmail, ContactFormData } from '../utils/emailjs';
@@ -514,9 +515,9 @@ export default function Contact({ customHeading, customSubtext }: FooterProps = 
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <a href="#" className="hover:text-[#35c4dd] transition-colors">Privacy Policy</a>
+              <Link href="/news-events" className="hover:text-[#35c4dd] transition-colors">News and Event</Link>
               <span>|</span>
-              <a href="#" className="hover:text-[#35c4dd] transition-colors">Terms of Use</a>
+              <a href="#" className="hover:text-[#35c4dd] transition-colors">Privacy Policy</a>
             </div>
           </div>
         </div>

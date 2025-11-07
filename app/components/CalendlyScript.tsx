@@ -9,14 +9,7 @@ export default function CalendlyScript() {
       strategy="afterInteractive"
       onLoad={() => {
         if (typeof window !== 'undefined' && (window as any).Calendly) {
-          (window as any).Calendly.initBadgeWidget({ 
-            url: 'https://calendly.com/contact-sharksbookpublishers/30min', 
-            text: 'Call for free', 
-            color: '#35c4dd', 
-            textColor: '#ffffff', 
-            branding: true 
-          }); 
-          
+          // Only initialize event handlers, not the badge widget
           // Global Calendly event handler for redirects
           window.addEventListener('message', function(event) {
             console.log('Calendly message received:', event.data);

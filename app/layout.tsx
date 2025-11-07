@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import CalendlyScript from "./components/CalendlyScript";
+import TawkToScript from "./components/TawkToScript";
 import MetaPixel from "./components/MetaPixel";
 
 const barlow = Barlow({
@@ -130,9 +131,12 @@ export default function RootLayout({
         
         {/* Meta Pixel for tracking */}
         <MetaPixel />
-    
-        {/* Calendly Script with optimization */}
+        
+        {/* Calendly Script (without badge widget) */}
         <CalendlyScript />
+        
+        {/* Tawk.to Chat Script */}
+        <TawkToScript />
       </body>
     </html>
   );

@@ -242,7 +242,15 @@ export default function TikTokBestServices() {
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <GetQuoteButton />
-            <button className="group flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#063f4a] transition-colors duration-300 rounded-full px-8 py-3 text-lg font-semibold" style={{ fontFamily: "'Barlow', sans-serif" }}>
+            <button 
+              className="group flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#063f4a] transition-colors duration-300 rounded-full px-8 py-3 text-lg font-semibold" 
+              style={{ fontFamily: "'Barlow', sans-serif" }}
+              onClick={() => {
+                if (typeof window !== 'undefined' && (window as any).Tawk_API) {
+                  (window as any).Tawk_API.maximize();
+                }
+              }}
+            >
               <Image src={imgChatIcon} alt="chat icon" width={20} height={20} />
               <span>Live Chat</span>
             </button>

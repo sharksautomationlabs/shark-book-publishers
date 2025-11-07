@@ -253,7 +253,14 @@ export default function ShopifyBestServices() {
           animate={controls}
         >
           <GetQuoteButton />
-          <button className="flex items-center justify-between w-[170px] h-[56px] bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg">
+          <button 
+            className="flex items-center justify-between w-[170px] h-[56px] bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg"
+            onClick={() => {
+              if (typeof window !== 'undefined' && (window as any).Tawk_API) {
+                (window as any).Tawk_API.maximize();
+              }
+            }}
+          >
             <span className="pl-5 text-[#063f4a] font-semibold text-lg" style={{ fontFamily: "'Barlow', sans-serif" }}>Live Chat</span>
             <div className="w-[44px] h-[44px] bg-[#063f4a] rounded-full flex items-center justify-center">
               <Image src={imgChatIcon} alt="chat icon" width={28} height={28} />

@@ -143,7 +143,7 @@ export default function Header({
                 <div className="w-[200px] h-[145px] md:w-[220px] md:h-[165px] lg:w-[260px] lg:h-[195px] relative fade-in -ml-1 lg:-ml-1">
                     <Image src={imgImage1} alt="Shark Book Publishers Logo" fill className="object-contain" priority />
                 </div>
-                <div className="hidden lg:flex w-[980px] h-[95px] bg-white/20 backdrop-blur-sm rounded-2xl items-center justify-end px-9 gap-7 border-2 border-white">
+                <div className="hidden lg:flex w-[850px] h-[95px] bg-white/20 backdrop-blur-sm rounded-2xl items-center justify-end px-9 gap-7 border-2 border-white">
                     <div className="flex items-center gap-5 text-white text-[18px] font-medium" style={{ fontFamily: "'Barlow', sans-serif" }}>
                         <Link href="/" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Home</Link>
                         <Link href="/about" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>About Us</Link>
@@ -151,18 +151,32 @@ export default function Header({
                         <Link href="/books" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Books</Link>
                         <Link href="/services" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Services</Link>
                         <Link href="/authors" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Authors</Link>
-                        <Link href="/news-events" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>News & Events</Link>
                         <Link href="/contact" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Contact</Link>
                     </div>
-                     <Link 
-                        href="/contact"
+                     <button 
+                        onClick={() => {
+                          if (typeof window !== 'undefined') {
+                            if ((window as any).Calendly) {
+                              (window as any).Calendly.initPopupWidget({
+                                url: 'https://calendly.com/contact-sharksbookpublishers/30min',
+                                onEventScheduled: function(e: any) {
+                                  window.location.href = '/thank-you';
+                                }
+                              });
+                            } else {
+                              // Fallback: open Calendly in new tab if script not loaded
+                              window.open('https://calendly.com/contact-sharksbookpublishers/30min', '_blank');
+                            }
+                          }
+                        }}
                         className="group flex items-center justify-between w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
+                        style={{ animation: 'heartbeat 1.5s ease-in-out infinite' }}
                      >
                         <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Get Started</span>
                         <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-2">
                         </span>
                         <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
-                    </Link>
+                    </button>
                 </div>
                 <div className="lg:hidden">
                     <button 
@@ -277,14 +291,6 @@ export default function Header({
                       Authors
                     </Link>
                     <Link 
-                      href="/news-events" 
-                      className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
-                      style={{ fontFamily: "'Barlow', sans-serif" }}
-                      onClick={() => setIsMobileNavOpen(false)}
-                    >
-                      News & Events
-                    </Link>
-                    <Link 
                       href="/contact" 
                       className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
@@ -297,20 +303,40 @@ export default function Header({
 
                 {/* Action Buttons */}
                 <div className="px-6 py-4 border-t border-white/20 space-y-3">
-                  <Link 
-                    href="/contact"
+                  <button 
+                    onClick={() => {
+                      setIsMobileNavOpen(false);
+                      if (typeof window !== 'undefined') {
+                        if ((window as any).Calendly) {
+                          (window as any).Calendly.initPopupWidget({
+                            url: 'https://calendly.com/contact-sharksbookpublishers/30min',
+                            onEventScheduled: function(e: any) {
+                              window.location.href = '/thank-you';
+                            }
+                          });
+                        } else {
+                          // Fallback: open Calendly in new tab if script not loaded
+                          window.open('https://calendly.com/contact-sharksbookpublishers/30min', '_blank');
+                        }
+                      }
+                    }}
                     className="group flex items-center justify-between w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
-                    onClick={() => setIsMobileNavOpen(false)}
+                    style={{ animation: 'heartbeat 1.5s ease-in-out infinite' }}
                   >
                     <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Get Started</span>
                     <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-2">
                     </span>
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
-                  </Link>
+                  </button>
                   
                   <button 
                     className="w-full flex items-center justify-between bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg"
-                    onClick={() => setIsMobileNavOpen(false)}
+                    onClick={() => {
+                      setIsMobileNavOpen(false);
+                      if (typeof window !== 'undefined' && (window as any).Tawk_API) {
+                        (window as any).Tawk_API.maximize();
+                      }
+                    }}
                   >
                     <span className="pl-3 text-[#063f4a] font-semibold text-base" style={{ fontFamily: "'Barlow', sans-serif" }}>
                       Live Chat
@@ -393,7 +419,14 @@ export default function Header({
                 </span>
                 <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
               </Link>
-              <button className="flex items-center justify-between w-[170px] h-[52px] bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg">
+              <button 
+                className="flex items-center justify-between w-[170px] h-[52px] bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).Tawk_API) {
+                    (window as any).Tawk_API.maximize();
+                  }
+                }}
+              >
                   <span className="pl-5 text-[#063f4a] font-bold text-xl" style={{ fontFamily: "'Barlow', sans-serif" }}>Live Chat</span>
                   <div className="w-[40px] h-[40px] bg-[#063f4a] rounded-full flex items-center justify-center">
                       <Image src={imgChatCircleDots} alt="chat icon" width={24} height={24} />

@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { User } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { User, Play, Pause } from 'lucide-react';
 import { motion, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
@@ -55,12 +55,37 @@ interface TestimonialsProps {
 
 export default function Testimonials({ testimonials: customTestimonials }: TestimonialsProps = {}) {
   const controls = useAnimation();
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoPlayerRef = useRef<HTMLVideoElement>(null);
   
   // Set triggerOnce to false to allow re-triggering
   const [ref, inView] = useInView({
     triggerOnce: false, // Set to false to re-trigger animation
     threshold: 0.3,   // Trigger when 30% of the component is in view
   });
+
+  const togglePlay = async () => {
+    if (videoPlayerRef.current) {
+      if (isPlaying) {
+        videoPlayerRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        // Ensure video is unmuted before playing
+        videoPlayerRef.current.muted = false;
+        try {
+          await videoPlayerRef.current.play();
+          setIsPlaying(true);
+        } catch (error) {
+          console.error('Error playing video:', error);
+          // If autoplay fails, try with muted first then unmute
+          videoPlayerRef.current.muted = true;
+          await videoPlayerRef.current.play();
+          videoPlayerRef.current.muted = false;
+          setIsPlaying(true);
+        }
+      }
+    }
+  };
 
   useEffect(() => {
     if (inView) {
@@ -135,6 +160,75 @@ export default function Testimonials({ testimonials: customTestimonials }: Testi
           >
             From debut storytellers to celebrated literary icons, our authors are the heart of our work. Explore biographies, latest releases, interviews, and upcoming events.
           </p>
+        </motion.div>
+
+        {/* Featured Video Testimonial - Judy */}
+        <motion.div
+          className="mb-12 lg:mb-16"
+          variants={cardVariants}
+          initial="hidden"
+          animate={controls}
+        >
+          {/* Meet Judith Hobson Text */}
+          <div className="text-center mb-6 lg:mb-8">
+            <h2 
+              className="text-2xl lg:text-4xl font-bold text-gray-800"
+              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            >
+              Meet Judith Hobson
+            </h2>
+          </div>
+          
+          <div className="relative w-full max-w-4xl mx-auto rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#35c4dd] to-[#063f4a] p-1">
+            <div className="relative w-full aspect-video bg-black rounded-xl lg:rounded-2xl overflow-hidden group">
+              <video
+                ref={videoPlayerRef}
+                className="w-full h-full object-cover"
+                loop
+                muted={false}
+                playsInline
+                preload="auto"
+                controls={false}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onLoadedMetadata={() => {
+                  // Ensure video can play with sound
+                  if (videoPlayerRef.current) {
+                    videoPlayerRef.current.muted = false;
+                  }
+                }}
+              >
+                <source src="/images/judy-vid.mp4" type="video/mp4" />
+              </video>
+              
+              {/* Play/Pause Overlay Button */}
+              <div 
+                className={`absolute inset-0 flex items-center justify-center transition-all duration-300 cursor-pointer ${
+                  isPlaying ? 'opacity-0 hover:opacity-100' : 'opacity-100'
+                } bg-black/30 group-hover:bg-black/20`}
+                onClick={togglePlay}
+              >
+                <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-[#35c4dd] flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform duration-300">
+                  {isPlaying ? (
+                    <Pause className="w-10 h-10 lg:w-12 lg:h-12 text-white ml-1" fill="white" />
+                  ) : (
+                    <Play className="w-10 h-10 lg:w-12 lg:h-12 text-white ml-1" fill="white" />
+                  )}
+                </div>
+              </div>
+
+              {/* Video Info Badge */}
+              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full">
+                <p className="text-sm lg:text-base font-semibold text-[#063f4a]" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                  🎬 Video Testimonial
+                </p>
+              </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#35c4dd]/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-[#063f4a]/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+            </div>
+          </div>
         </motion.div>
         
         {/* Testimonials Grid */}

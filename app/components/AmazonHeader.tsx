@@ -305,7 +305,12 @@ export default function AmazonHeader({
                   
                   <button 
                     className="w-full flex items-center justify-between bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg"
-                    onClick={() => setIsMobileNavOpen(false)}
+                    onClick={() => {
+                      setIsMobileNavOpen(false);
+                      if (typeof window !== 'undefined' && (window as any).Tawk_API) {
+                        (window as any).Tawk_API.maximize();
+                      }
+                    }}
                   >
                     <span className="pl-3 text-[#063f4a] font-semibold text-base" style={{ fontFamily: "'Barlow', sans-serif" }}>
                       Live Chat

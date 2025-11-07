@@ -63,6 +63,22 @@ body {
   }
 }
 
+/* Heartbeat animation for Get Started button */
+@keyframes heartbeat {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 1;
+  }
+}
+
 .animate-float-amazon {
   animation: float-amazon 4s ease-in-out infinite 1s;
 }

@@ -38,12 +38,12 @@ export default function TickerTape2() {
             className="flex items-center justify-center mx-8 lg:mx-12 h-14 lg:h-20 w-auto group overflow-hidden"
             style={{ height: '100%', maxHeight: '140px' }}
           >
-            <div className="relative w-[180px] h-[120px] lg:w-[220px] lg:h-[150px] overflow-hidden">
+            <div className="relative w-[180px] h-[120px] lg:w-[220px] lg:h-[150px] overflow-hidden transition-transform duration-300 group-hover:scale-110">
               <Image
                 src={logo}
                 alt={`Trust logo ${index + 1}`}
                 fill
-                className="object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0"
+                className="object-contain opacity-90 group-hover:opacity-100 transition-all duration-300"
                 style={{ objectFit: 'contain' }}
               />
             </div>
