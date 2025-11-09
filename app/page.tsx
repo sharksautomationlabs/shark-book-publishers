@@ -14,6 +14,7 @@ import NewsEvents from './components/NewsEvents';
 import BookCategories from './components/BookCategories';
 // import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Popup from './components/Popup';
 
 export default function Home() {
   return (
@@ -34,6 +35,9 @@ export default function Home() {
       <Opportunities />
       <Footer />
       {/* <Careers /> */}
+
+      {/* Image Popup Component */}
+      <Popup />
     </div>
   );
 }
