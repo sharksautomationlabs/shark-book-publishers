@@ -44,15 +44,15 @@ const cards: Card[] = [
 // --- 2. ANIMATION VARIANTS ---
 
 const leftCardVariants = (dir: 'up' | 'down'): Variants => ({
-  hidden: { opacity: 0.76, x: -200, transition: { duration: 0.6, ease: 'easeOut' } },
+  hidden: { opacity: 0.76, x: -50, transition: { duration: 0.6, ease: 'easeOut' } },
   show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-  exit: { opacity: 0.76, x: -200, transition: { duration: 0.6, ease: 'easeOut' } },
+  exit: { opacity: 0.76, x: -50, transition: { duration: 0.6, ease: 'easeOut' } },
 });
 
 const rightCardVariants = (dir: 'up' | 'down'): Variants => ({
-  hidden: { opacity: 0.76, x: 200, transition: { duration: 0.6, ease: 'easeOut' } },
+  hidden: { opacity: 0.76, x: 50, transition: { duration: 0.6, ease: 'easeOut' } },
   show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-  exit: { opacity: 0.76, x: 200, transition: { duration: 0.6, ease: 'easeOut' } },
+  exit: { opacity: 0.76, x: 50, transition: { duration: 0.6, ease: 'easeOut' } },
 });
 
 // --- 3. NEWS CARD COMPONENT (MODIFIED) ---
@@ -97,17 +97,17 @@ const NewsCard: React.FC<NewsCardProps> = ({
       animate={animation}
       // 1. Box height ko chota kiya (220px)
       // 2. overflow-visible add kiya taake image bahar nikal sake
-      className={`relative w-full h-[240px] md:h-[260px] will-change-transform overflow-visible ${index >= 2 ? 'mt-8 md:mt-12' : ''}`}
+      className={`relative w-full h-[180px] sm:h-[200px] md:h-[220px] lg:h-[240px] xl:h-[260px] will-change-transform overflow-visible ${index >= 2 ? 'mt-4 sm:mt-6 md:mt-8 lg:mt-12' : ''}`}
     >
       {/* A. Main Image (Person/People) */}
-      <div className="absolute right-0 bottom-0 w-[70%] md:w-[60%] h-full z-20 pointer-events-none">
+      <div className="absolute right-0 bottom-0 w-[75%] sm:w-[70%] md:w-[65%] lg:w-[60%] h-full z-20 pointer-events-none">
         <Image
           src={card.img} // *This MUST be a transparent PNG*
           alt={card.title}
           width={450}
           height={450}
           // 3. Image height ko 140% kiya taake woh upar se bahar nikle (bottom-0 se anchored)
-          className="absolute bottom-0 right-0 w-auto h-[185%] md:h-[195%] object-contain"
+          className="absolute bottom-0 right-0 w-auto h-[170%] sm:h-[175%] md:h-[180%] lg:h-[185%] xl:h-[195%] object-contain"
           priority={index < 2}
         />
       </div>
@@ -115,7 +115,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
       {/* B. Blue Background Card (Text, Button, Shark) */}
       {/* Height h-full rahegi, jo parent ke 220px ke barabar hai */}
        <div 
-         className="relative z-10 w-full h-full rounded-3xl overflow-hidden shadow-xl"
+         className="relative z-10 w-full h-full rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl"
          style={{
            background: 'linear-gradient(135deg, #d0f7ff 0%, #35c4dd 100%)'
          }}
@@ -127,18 +127,18 @@ const NewsCard: React.FC<NewsCardProps> = ({
           alt="Shark"
           width={300}
           height={300}
-          className={`absolute top-0 w-auto h-[70%] object-contain opacity-20 z-0 ${
+          className={`absolute top-0 w-auto h-[60%] sm:h-[65%] md:h-[70%] object-contain opacity-20 z-0 ${
             isLeft ? 'right-0' : 'left-0'
           }`}
         />
 
          {/* D. Text aur Button Content */}
-         <div className="relative z-10 flex flex-col justify-between w-full md:w-[55%] h-full p-6 md:p-8">
+         <div className="relative z-10 flex flex-col justify-between w-full md:w-[55%] h-full p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8">
           <div>
-            <h3 className="text-[28px] md:text-[32px] font-semibold text-[#0a0a0a] mb-2 leading-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[28px] xl:text-[32px] font-semibold text-[#0a0a0a] mb-1 sm:mb-2 leading-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
               {card.title}
             </h3>
-            <p className="text-[16px] md:text-[17px] text-[#0a0a0a] mb-5 leading-relaxed" style={{ fontFamily: "'Barlow', sans-serif" }}>
+            <p className="text-xs sm:text-sm md:text-base lg:text-[16px] xl:text-[17px] text-[#0a0a0a] mb-2 sm:mb-3 md:mb-4 lg:mb-5 leading-relaxed line-clamp-2 sm:line-clamp-none" style={{ fontFamily: "'Barlow', sans-serif" }}>
               {card.desc}
             </p>
           </div>
@@ -146,10 +146,10 @@ const NewsCard: React.FC<NewsCardProps> = ({
           {/* E. Button - Matching Mission Section */}
           <Link 
             href="/news-events"
-            className="group flex items-center justify-between w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
+            className="group flex items-center justify-center lg:justify-between w-full lg:w-[180px] h-[40px] sm:h-[44px] md:h-[48px] lg:h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-sm sm:text-base md:text-lg lg:text-xl shadow-lg overflow-hidden relative p-1.5 sm:p-2"
           >
-            <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Get Started</span>
-            <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-2">
+            <span className="relative z-10 lg:pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Get Started</span>
+            <span className="hidden lg:flex bg-white rounded-full w-[24px] h-[24px] items-center justify-center relative z-10 flex-shrink-0 -ml-2">
             </span>
             <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
           </Link>
@@ -178,13 +178,13 @@ export default function NewsEvents() {
   }, [lastY]);
 
   return (
-    <section className="w-full py-20 md:py-28 bg-white overflow-hidden overflow-x-hidden">
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-8">
-        <h2 className="text-center font-['Barlow_Condensed'] text-[40px] md:text-[48px] font-semibold text-[#0a0a0a] mb-10">
+    <section className="w-full py-12 sm:py-16 md:py-20 lg:py-28 bg-white overflow-hidden overflow-x-hidden">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
+        <h2 className="text-center font-['Barlow_Condensed'] text-3xl sm:text-4xl md:text-[40px] lg:text-[48px] font-semibold text-[#0a0a0a] mb-6 sm:mb-8 md:mb-10">
           News & Events
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 py-10 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 py-6 sm:py-8 md:py-10 lg:py-12">
           {cards.map((c, i) => (
             <NewsCard
               key={c.id}

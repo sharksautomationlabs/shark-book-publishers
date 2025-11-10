@@ -8,7 +8,7 @@ import { useVideoLazyLoading } from '../utils/videoLazyLoading';
 
 // Hamburger Menu Icon for Mobile
 const HamburgerIcon = ({ isOpen }: { isOpen: boolean }) => (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-300">
         {isOpen ? (
             <path d="M18 6L6 18M6 6L18 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         ) : (
@@ -134,11 +134,11 @@ export default function AmazonHeader({
               </div>
             </div>
 
-            <div className="mt-2 lg:mt-6 flex items-center justify-between">
-                <div className="w-[200px] h-[145px] md:w-[220px] md:h-[165px] lg:w-[260px] lg:h-[195px] relative fade-in -ml-1 lg:-ml-1">
+            <div className="mt-1 sm:mt-2 md:mt-4 lg:mt-6 flex items-center justify-between">
+                <div className="w-[130px] h-[95px] sm:w-[180px] sm:h-[130px] md:w-[220px] md:h-[165px] lg:w-[260px] lg:h-[195px] relative fade-in -ml-1 lg:-ml-1">
                     <Image src={imgImage1} alt="Shark Book Publishers Logo" fill className="object-contain" priority />
                 </div>
-                <div className="hidden lg:flex w-[1080px] h-[100px] bg-white/20 backdrop-blur-sm rounded-2xl items-center justify-end px-10 gap-8 border-2 border-white">
+                <div className="hidden lg:flex w-[850px] h-[95px] bg-white/20 backdrop-blur-sm rounded-2xl items-center justify-end px-9 gap-7 border-2 border-white">
                     <div className="flex items-center gap-5 text-white text-[18px] font-medium" style={{ fontFamily: "'Barlow', sans-serif" }}>
                         <Link href="/" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Home</Link>
                         <Link href="/about" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>About Us</Link>
@@ -146,18 +146,32 @@ export default function AmazonHeader({
                         <Link href="/books" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Books</Link>
                         <Link href="/services" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Services</Link>
                         <Link href="/authors" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Authors</Link>
-                        <Link href="/news-events" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>News & Events</Link>
                         <Link href="/contact" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Contact</Link>
                     </div>
-                     <Link 
-                        href="/contact"
+                     <button 
+                        onClick={() => {
+                          if (typeof window !== 'undefined') {
+                            if ((window as any).Calendly) {
+                              (window as any).Calendly.initPopupWidget({
+                                url: 'https://calendly.com/contact-sharksbookpublishers/30min',
+                                onEventScheduled: function(e: any) {
+                                  window.location.href = '/thank-you';
+                                }
+                              });
+                            } else {
+                              // Fallback: open Calendly in new tab if script not loaded
+                              window.open('https://calendly.com/contact-sharksbookpublishers/30min', '_blank');
+                            }
+                          }
+                        }}
                         className="group flex items-center justify-between w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
+                        style={{ animation: 'heartbeat 1.5s ease-in-out infinite' }}
                      >
                         <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Get Started</span>
                         <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-2">
                         </span>
                         <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
-                    </Link>
+                    </button>
                 </div>
                 <div className="lg:hidden">
                     <button 
@@ -181,13 +195,13 @@ export default function AmazonHeader({
             />
             
             {/* Navigation Panel */}
-            <div className={`absolute top-0 right-0 h-full w-[85%] max-w-sm bg-[#052126] shadow-2xl transform transition-transform duration-300 ease-in-out ${
+            <div className={`absolute top-0 right-0 h-full w-[85%] sm:w-[75%] md:w-[65%] max-w-sm bg-[#052126] shadow-2xl transform transition-transform duration-300 ease-in-out ${
               isMobileNavOpen ? 'translate-x-0' : 'translate-x-full'
             }`}>
               <div className="flex flex-col h-full">
                 {/* Header */}
-                <div className="flex items-center justify-between p-6 border-b border-white/20">
-                  <div className="w-[110px] h-[82px] relative -ml-8">
+                <div className="flex items-center justify-between p-4 sm:p-5 md:p-6 border-b border-white/20">
+                  <div className="w-[100px] h-[75px] sm:w-[110px] sm:h-[82px] md:w-[120px] md:h-[90px] relative -ml-[8px] sm:-ml-[12px] md:-ml-[16px]">
                     <Image src={imgImage1} alt="Shark Book Publishers Logo" fill className="object-contain" priority />
                   </div>
                   <button 
@@ -199,33 +213,33 @@ export default function AmazonHeader({
                 </div>
 
                 {/* Top Bar Items */}
-                <div className="px-6 py-3 border-b border-white/20">
+                <div className="px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 border-b border-white/20">
                   <div className="space-y-2">
                     <a 
                       href="tel:4694807938" 
-                      className="flex items-center gap-2 text-white text-xs font-medium hover:text-[#35c4dd] transition-colors"
+                      className="flex items-center gap-2 text-white text-xs sm:text-sm font-medium hover:text-[#35c4dd] transition-colors"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                     >
-                      <Image src={imgGroup1000004908} alt="phone" width={16} height={16} />
-                      <span>+1 (469) 452-7618</span>
+                      <Image src={imgGroup1000004908} alt="phone" width={16} height={16} className="sm:w-4 sm:h-4" />
+                      <span className="break-all">+1 (469) 452-7618</span>
                     </a>
                     <a 
                       href="mailto:info@ecomsharkss.com" 
-                      className="flex items-center gap-2 text-white text-xs font-medium hover:text-[#35c4dd] transition-colors"
+                      className="flex items-center gap-2 text-white text-xs sm:text-sm font-medium hover:text-[#35c4dd] transition-colors"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                     >
-                      <Image src={imgGroup1000004909} alt="email" width={16} height={16} />
-                      <span>contact@sharksbookpublishers.com</span>
+                      <Image src={imgGroup1000004909} alt="email" width={16} height={16} className="sm:w-4 sm:h-4" />
+                      <span className="break-all">contact@sharksbookpublishers.com</span>
                     </a>
                   </div>
                 </div>
 
                 {/* Navigation Links */}
-                <div className="flex-1 px-6 py-4">
-                  <nav className="space-y-3">
+                <div className="flex-1 px-4 sm:px-5 md:px-6 py-3 sm:py-4 overflow-y-auto">
+                  <nav className="space-y-2 sm:space-y-3">
                     <Link 
                       href="/" 
-                      className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
+                      className="block text-white text-sm sm:text-base font-medium hover:text-[#35c4dd] transition-colors py-1.5 sm:py-2"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
                     >
@@ -233,7 +247,7 @@ export default function AmazonHeader({
                     </Link>
                     <Link 
                       href="/about" 
-                      className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
+                      className="block text-white text-sm sm:text-base font-medium hover:text-[#35c4dd] transition-colors py-1.5 sm:py-2"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
                     >
@@ -241,7 +255,7 @@ export default function AmazonHeader({
                     </Link>
                     <Link 
                       href="/testimonials" 
-                      className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
+                      className="block text-white text-sm sm:text-base font-medium hover:text-[#35c4dd] transition-colors py-1.5 sm:py-2"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
                     >
@@ -249,7 +263,7 @@ export default function AmazonHeader({
                     </Link>
                     <Link 
                       href="/books" 
-                      className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
+                      className="block text-white text-sm sm:text-base font-medium hover:text-[#35c4dd] transition-colors py-1.5 sm:py-2"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
                     >
@@ -257,7 +271,7 @@ export default function AmazonHeader({
                     </Link>
                     <Link 
                       href="/services" 
-                      className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
+                      className="block text-white text-sm sm:text-base font-medium hover:text-[#35c4dd] transition-colors py-1.5 sm:py-2"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
                     >
@@ -265,23 +279,15 @@ export default function AmazonHeader({
                     </Link>
                     <Link 
                       href="/authors" 
-                      className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
+                      className="block text-white text-sm sm:text-base font-medium hover:text-[#35c4dd] transition-colors py-1.5 sm:py-2"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
                     >
                       Authors
                     </Link>
                     <Link 
-                      href="/news-events" 
-                      className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
-                      style={{ fontFamily: "'Barlow', sans-serif" }}
-                      onClick={() => setIsMobileNavOpen(false)}
-                    >
-                      News & Events
-                    </Link>
-                    <Link 
                       href="/contact" 
-                      className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
+                      className="block text-white text-sm sm:text-base font-medium hover:text-[#35c4dd] transition-colors py-1.5 sm:py-2"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                       onClick={() => setIsMobileNavOpen(false)}
                     >
@@ -291,20 +297,35 @@ export default function AmazonHeader({
                 </div>
 
                 {/* Action Buttons */}
-                <div className="px-6 py-4 border-t border-white/20 space-y-3">
-                  <Link 
-                    href="/contact"
-                    className="group flex items-center justify-between w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
-                    onClick={() => setIsMobileNavOpen(false)}
+                <div className="px-4 sm:px-5 md:px-6 py-3 sm:py-4 border-t border-white/20 space-y-2 sm:space-y-3">
+                  <button 
+                    onClick={() => {
+                      setIsMobileNavOpen(false);
+                      if (typeof window !== 'undefined') {
+                        if ((window as any).Calendly) {
+                          (window as any).Calendly.initPopupWidget({
+                            url: 'https://calendly.com/contact-sharksbookpublishers/30min',
+                            onEventScheduled: function(e: any) {
+                              window.location.href = '/thank-you';
+                            }
+                          });
+                        } else {
+                          // Fallback: open Calendly in new tab if script not loaded
+                          window.open('https://calendly.com/contact-sharksbookpublishers/30min', '_blank');
+                        }
+                      }
+                    }}
+                    className="group flex items-center justify-between w-full sm:w-[170px] md:w-[180px] h-[44px] sm:h-[48px] md:h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-base sm:text-lg md:text-xl shadow-lg overflow-hidden relative p-2"
+                    style={{ animation: 'heartbeat 1.5s ease-in-out infinite' }}
                   >
-                    <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Get Started</span>
-                    <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-2">
+                    <span className="relative z-10 pl-2 sm:pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Get Started</span>
+                    <span className="bg-white rounded-full w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] md:w-[24px] md:h-[24px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-2">
                     </span>
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
-                  </Link>
+                  </button>
                   
                   <button 
-                    className="w-full flex items-center justify-between bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg"
+                    className="w-full flex items-center justify-between h-[44px] sm:h-[48px] md:h-[52px] bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg"
                     onClick={() => {
                       setIsMobileNavOpen(false);
                       if (typeof window !== 'undefined' && (window as any).Tawk_API) {
@@ -312,11 +333,11 @@ export default function AmazonHeader({
                       }
                     }}
                   >
-                    <span className="pl-3 text-[#063f4a] font-semibold text-base" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                    <span className="pl-2 sm:pl-3 text-[#063f4a] font-semibold text-sm sm:text-base" style={{ fontFamily: "'Barlow', sans-serif" }}>
                       Live Chat
                     </span>
-                    <div className="w-[40px] h-[40px] bg-[#063f4a] rounded-full flex items-center justify-center">
-                      <Image src={imgChatCircleDots} alt="chat icon" width={24} height={24} />
+                    <div className="w-[32px] h-[32px] sm:w-[36px] sm:h-[36px] md:w-[40px] md:h-[40px] bg-[#063f4a] rounded-full flex items-center justify-center">
+                      <Image src={imgChatCircleDots} alt="chat icon" width={18} height={18} className="sm:w-[20px] sm:h-[20px] md:w-6 md:h-6" />
                     </div>
                   </button>
                 </div>

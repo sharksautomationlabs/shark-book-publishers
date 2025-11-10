@@ -107,18 +107,18 @@ const BookCategoriesHome = () => {
       `}</style>
 
       {/* White Section with Heading */}
-      <div className="w-full bg-white py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4">
+      <div className="w-full bg-white py-8 sm:py-10 md:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Badge/Tag */}
           <motion.div 
-            className="flex justify-center mb-8 lg:mb-12"
+            className="flex justify-center mb-6 sm:mb-8 lg:mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 bg-[#95e5f3] text-[#2c2420] px-3 lg:px-5 py-2 lg:py-2.5 rounded-full">
-              <span className="font-medium text-sm lg:text-base" style={{ fontFamily: "'Barlow', sans-serif" }}>Book Categories</span>
+            <div className="inline-flex items-center gap-2 bg-[#95e5f3] text-[#2c2420] px-3 sm:px-4 lg:px-5 py-2 lg:py-2.5 rounded-full">
+              <span className="font-medium text-xs sm:text-sm lg:text-base" style={{ fontFamily: "'Barlow', sans-serif" }}>Book Categories</span>
             </div>
           </motion.div>
 
@@ -127,12 +127,12 @@ const BookCategoriesHome = () => {
             {/* Continuous underline */}
             <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-300"></div>
             
-            <div className="flex flex-nowrap justify-center gap-4 sm:gap-6 lg:gap-8 overflow-x-auto pb-4 hide-scrollbar px-2">
+            <div className="flex flex-nowrap justify-start sm:justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 overflow-x-auto pb-4 hide-scrollbar px-2 sm:px-4">
               {categories.map((category, index) => (
                 <motion.button
                   key={index}
                   onClick={() => setActiveCategory(activeCategory === category.name ? null : category.name)}
-                  className={`relative flex flex-col items-center transition-all duration-300 flex-shrink-0 group min-h-[60px] ${
+                  className={`relative flex flex-col items-center transition-all duration-300 flex-shrink-0 group min-h-[50px] sm:min-h-[60px] ${
                     activeCategory === category.name 
                       ? 'text-[#35c4dd]' 
                       : 'text-[#2c2420] hover:text-[#35c4dd]'
@@ -144,7 +144,7 @@ const BookCategoriesHome = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span className="font-light text-base sm:text-lg lg:text-2xl tracking-wide mb-2 px-2 text-center leading-tight whitespace-nowrap" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                  <span className="font-light text-sm sm:text-base md:text-lg lg:text-2xl tracking-wide mb-2 px-1 sm:px-2 text-center leading-tight whitespace-nowrap" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
                     {category.name.replace(/\n/g, ' ')}
                   </span>
                   {/* Active category highlight */}
@@ -195,9 +195,9 @@ const BookCategoriesHome = () => {
           </div>
 
           {/* Content Layer */}
-          <div className="relative z-20 w-full h-full flex flex-col items-center justify-center text-white pt-12 lg:pt-20 px-5 lg:px-0">
+          <div className="relative z-20 w-full h-full flex flex-col items-center justify-center text-white pt-8 sm:pt-10 md:pt-12 lg:pt-20 px-4 sm:px-5 lg:px-0">
             {/* Books Display */}
-            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 w-full">
               <motion.div
                 key={activeCategory}
                 initial={{ opacity: 0, y: 20 }}
@@ -205,7 +205,7 @@ const BookCategoriesHome = () => {
                 transition={{ duration: 0.5 }}
               >
                 {/* Books Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 gap-y-8 sm:gap-y-12">
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-3 gap-y-6 sm:gap-y-8 md:gap-y-12">
                   {categories
                     .find(cat => cat.name === activeCategory)
                     ?.books.map((book, bookIndex) => (
@@ -218,8 +218,8 @@ const BookCategoriesHome = () => {
                         onClick={() => window.open((book as any).amazonLink, '_blank')}
                       >
                         {/* Glassmorphic Container */}
-                        <div className="absolute inset-0 mx-[20%] -my-3 bg-white/10 rounded-2xl border border-white/30 shadow-lg z-10 group-hover:scale-95 transition-transform duration-300 ease-out">
-                          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl"></div>
+                        <div className="absolute inset-0 mx-[5%] sm:mx-[10%] md:mx-[15%] lg:mx-[20%] -my-2 sm:-my-3 bg-white/10 rounded-xl sm:rounded-2xl border border-white/30 shadow-lg z-10 group-hover:scale-95 transition-transform duration-300 ease-out">
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-xl sm:rounded-2xl"></div>
                           {/* Diagonal Flash Effect */}
                           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden">
                             <div className="absolute -top-1 -right-1 w-8 h-full bg-white/60 transform -skew-x-12 translate-x-[200%] group-hover:translate-x-[-200%] transition-transform duration-800 ease-out"></div>
@@ -233,7 +233,7 @@ const BookCategoriesHome = () => {
                             alt={book.title}
                             width={200}
                             height={300}
-                            className="w-full h-[200px] sm:h-[250px] lg:h-[300px] object-contain"
+                            className="w-full h-[160px] sm:h-[200px] md:h-[250px] lg:h-[300px] object-contain"
                           />
                         </div>
                       </motion.div>

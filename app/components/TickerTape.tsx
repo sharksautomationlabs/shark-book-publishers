@@ -43,7 +43,7 @@ export default function TickerTape() {
         {duplicatedLogos.map((logo, index) => (
           <div
             key={`${logo}-${index}`}
-            className="flex items-center justify-center mx-8 lg:mx-12 h-14 lg:h-20 w-auto group overflow-hidden"
+            className="flex items-center justify-center mx-4 lg:mx-6 h-14 lg:h-20 w-auto group overflow-hidden"
             style={{ height: '100%', maxHeight: '140px' }}
           >
             <div className="relative w-[180px] h-[120px] lg:w-[220px] lg:h-[150px] overflow-hidden transition-transform duration-300 group-hover:scale-110">

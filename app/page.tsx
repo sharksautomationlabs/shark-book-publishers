@@ -12,7 +12,6 @@ import Owners from './components/Owners';
 // import Careers from './components/careers';
 
 import AwardWinning from './components/AwardWinning';
-import NewsEvents from './components/NewsEvents';
 import BookCategories from './components/BookCategories';
 // import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -35,7 +34,7 @@ export default function Home() {
       <AwardWinning />
       <Owners />
       <Services />
-      <NewsEvents />
+
       <Footer />
       {/* <Careers /> */}
 

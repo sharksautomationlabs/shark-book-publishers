@@ -160,8 +160,8 @@ export default function AwardWinningSection({
   };
 
   return (
-    <div ref={ref} className="w-full bg-white flex justify-center -mb-16 lg:-mb-24">
-        <div className={`relative w-full max-w-[1920px] overflow-hidden select-none ${useCustomContent ? 'min-h-[800px] pt-20 pb-0 lg:pt-20 lg:pb-0' : 'min-h-[900px] lg:min-h-[1200px] pt-16 pb-0 lg:pt-20 lg:pb-0'}`}>
+    <div ref={ref} className="w-full bg-white flex justify-center -mb-12 sm:-mb-16 lg:-mb-24">
+        <div className={`relative w-full max-w-[1920px] overflow-hidden select-none ${useCustomContent ? 'min-h-[600px] sm:min-h-[700px] md:min-h-[800px] pt-12 sm:pt-16 md:pt-20 pb-0 lg:pt-20 lg:pb-0' : 'min-h-[700px] sm:min-h-[800px] md:min-h-[900px] lg:min-h-[1200px] pt-12 sm:pt-14 md:pt-16 pb-0 lg:pt-20 lg:pb-0'}`}>
         
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-[#bef4fe] to-white opacity-100" />
@@ -175,20 +175,20 @@ export default function AwardWinningSection({
           />
         </div>
 
-        <div className={`relative z-10 w-full px-5 lg:px-20 ${useCustomContent ? 'h-full flex items-center' : 'h-full'}`}>
+        <div className={`relative z-10 w-full px-4 sm:px-5 md:px-6 lg:px-20 ${useCustomContent ? 'h-full flex items-center' : 'h-full'}`}>
           {!useCustomContent && (
-            <nav className="relative z-30 w-full flex justify-center pt-3 lg:pt-6">
-              <div className="flex items-center gap-8 lg:gap-16 overflow-x-auto border-b-2 border-[#79bfcd] pb-4 lg:pb-6 max-w-fit">
+            <nav className="relative z-30 w-full flex justify-center pt-2 sm:pt-3 lg:pt-6">
+              <div className="flex items-center gap-4 sm:gap-6 md:gap-8 lg:gap-16 overflow-x-auto border-b-2 border-[#79bfcd] pb-3 sm:pb-4 lg:pb-6 max-w-fit px-2">
                 {Object.keys(contentData).map((tab) => (
                   <div 
                     key={tab}
                     className={`relative ${
-                      activeTab === tab ? 'border-b-2 border-[#063f4a] pb-4 lg:pb-6 -mb-4 lg:-mb-6' : 'border-b-2 border-transparent pb-4 lg:pb-6 -mb-4 lg:-mb-6'
+                      activeTab === tab ? 'border-b-2 border-[#063f4a] pb-3 sm:pb-4 lg:pb-6 -mb-3 sm:-mb-4 lg:-mb-6' : 'border-b-2 border-transparent pb-3 sm:pb-4 lg:pb-6 -mb-3 sm:-mb-4 lg:-mb-6'
                     }`}
                   >
                     <span 
                       onClick={() => setActiveTab(tab)}
-                      className={`text-lg lg:text-[32px] transition-colors duration-300 cursor-pointer hover:opacity-80 inline-block ${
+                      className={`text-base sm:text-lg md:text-xl lg:text-[32px] transition-colors duration-300 cursor-pointer hover:opacity-80 inline-block whitespace-nowrap ${
                         activeTab === tab ? 'text-[#063f4a]' : 'text-[#2c2420] opacity-60'
                       }`} 
                       style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 500 }}
@@ -227,14 +227,14 @@ export default function AwardWinningSection({
                       animate="animate"
                       exit="exit"
                     >
-                      <div className="inline-flex items-center gap-2 bg-[#95e5f3] text-[#2c2420] px-3 lg:px-5 py-2 lg:py-2.5 rounded-full mb-6 lg:mb-8 mt-4 lg:mt-0">
-                          <span className="font-medium text-sm lg:text-base" style={{ fontFamily: "'Barlow', sans-serif" }}>{currentContent.badge}</span>
+                      <div className="inline-flex items-center gap-2 bg-[#95e5f3] text-[#2c2420] px-3 sm:px-4 lg:px-5 py-2 lg:py-2.5 rounded-full mb-4 sm:mb-5 md:mb-6 lg:mb-8 mt-3 sm:mt-4 lg:mt-0">
+                          <span className="font-medium text-xs sm:text-sm lg:text-base" style={{ fontFamily: "'Barlow', sans-serif" }}>{currentContent.badge}</span>
                       </div>
-                      <h1 className="text-4xl lg:text-[94px] font-semibold text-[#2c2420] leading-tight lg:leading-[0.921]" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[94px] font-semibold text-[#2c2420] leading-tight lg:leading-[0.921]" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
                           {currentContent.title}
                       </h1>
                       {'description' in currentContent ? (
-                        <p className="mt-6 lg:mt-8 text-base lg:text-[20px] text-[#333333] leading-6 lg:leading-[32px] text-justify whitespace-pre-line" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                        <p className="mt-4 sm:mt-5 md:mt-6 lg:mt-8 text-sm sm:text-base lg:text-[20px] text-[#333333] leading-5 sm:leading-6 lg:leading-[32px] text-justify whitespace-pre-line" style={{ fontFamily: "'Barlow', sans-serif" }}>
                           {currentContent.description}
                         </p>
                       ) : null}
@@ -243,26 +243,26 @@ export default function AwardWinningSection({
                 )}
                 
                  {/* Buttons */}
-                 <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-8 mt-8 lg:mt-12">
+                 <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-8 mt-8 lg:mt-12 w-full">
                    <Link 
                       href="/contact"
-                      className="group flex items-center justify-between w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
+                      className="group flex items-center justify-center lg:justify-between w-full lg:w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
                    >
-                       <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Get Started</span>
-                       <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-2">
+                       <span className="relative z-10 lg:pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Get Started</span>
+                       <span className="hidden lg:flex bg-white rounded-full w-[24px] h-[24px] items-center justify-center relative z-10 flex-shrink-0 -ml-2">
                        </span>
                        <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
                    </Link>
                     <button 
-                      className="flex items-center justify-between w-[170px] h-[52px] bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg"
+                      className="flex items-center justify-center lg:justify-between w-full lg:w-[170px] h-[52px] bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg"
                       onClick={() => {
                         if (typeof window !== 'undefined' && (window as any).Tawk_API) {
                           (window as any).Tawk_API.maximize();
                         }
                       }}
                     >
-                      <span className="pl-5 text-[#063f4a] font-bold text-xl" style={{ fontFamily: "'Barlow', sans-serif" }}>Live Chat</span>
-                     <div className="w-[40px] h-[40px] bg-[#063f4a] rounded-full flex items-center justify-center">
+                      <span className="lg:pl-5 text-[#063f4a] font-bold text-xl" style={{ fontFamily: "'Barlow', sans-serif" }}>Live Chat</span>
+                     <div className="hidden lg:flex w-[40px] h-[40px] bg-[#063f4a] rounded-full items-center justify-center">
                          <Image src={imgChatCircleDots} alt="chat icon" width={24} height={24} />
                      </div>
                    </button>
@@ -280,7 +280,7 @@ export default function AwardWinningSection({
                   variants={personWipeUpVariants}
                 >
                   {activeTab === 'awardWinners' && (
-                    <div className="absolute w-[160%] h-[80%] -top-[4%] right-[5%] z-0 animate-shark-lean">
+                    <div className="absolute w-[160%] h-[80%] -top-[4%] -right-[1%] sm:right-[3%] md:right-[4%] lg:right-[5%] z-0 animate-shark-lean">
                         <Image 
                           src={imgSharkUnderwater} 
                           alt="Shark" 
@@ -289,7 +289,7 @@ export default function AwardWinningSection({
                         />
                     </div>
                   )}
-                  <div className="absolute left-0 right-0 bottom-0 z-20 flex items-center justify-center animate-float" style={{ top: '-20%' }}>
+                  <div className="absolute left-0 right-0 bottom-0 z-20 flex items-center justify-center animate-float" style={{ top: '-25%' }}>
                       <div className="relative w-[60%] h-[60%]">
                         <Image 
                           src={getTabImage()} 
@@ -300,7 +300,7 @@ export default function AwardWinningSection({
                       </div>
                   </div>
                   <div
-                    className="absolute w-[60%] top-[45%] right-[22%] z-10 animate-hand-pivot"
+                    className="absolute w-[60%] top-[35%] sm:top-[40%] md:top-[42%] lg:top-[45%] right-[22%] z-10 animate-hand-pivot"
                     style={{
                       transformOrigin: '100% 50%', // right edge as pivot
                     }}

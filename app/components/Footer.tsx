@@ -271,60 +271,74 @@ export default function Contact({ customHeading, customSubtext }: FooterProps = 
 
       {/* Main Content Area */}
       <motion.div 
-        className="relative z-10 container mx-auto px-5 lg:px-20 py-16 lg:py-0"
+        className="relative z-10 container mx-auto px-4 sm:px-5 md:px-6 lg:px-20 py-12 sm:py-14 md:py-16 lg:py-0"
         variants={containerVariants}
         initial="hidden"
         animate={controls}
       >
         {(customHeading || customSubtext) && (
-          <div className="text-center mb-12 lg:mb-16">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
             {customHeading && (
-              <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold mb-4 lg:mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-5 lg:mb-6" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
                 {customHeading}
               </h2>
             )}
             {customSubtext && (
-              <p className="text-base lg:text-xl text-gray-800 max-w-3xl mx-auto" style={{ fontFamily: "'Barlow', sans-serif" }}>
+              <p className="text-sm sm:text-base lg:text-xl text-gray-800 max-w-3xl mx-auto px-2" style={{ fontFamily: "'Barlow', sans-serif" }}>
                 {customSubtext}
               </p>
             )}
           </div>
         )}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 md:gap-x-12 lg:gap-x-16 gap-y-8 sm:gap-y-10 md:gap-y-12">
           
           {/* Left Column: Text and Contact Info */}
           <motion.div 
-            className="pt-8 lg:pt-12 text-gray-800"
+            className="pt-6 sm:pt-8 lg:pt-12 text-gray-800"
             variants={leftVariants}
             initial="hidden"
             animate={controls}
           >
-            <h1 className="text-4xl lg:text-7xl xl:text-8xl font-semibold" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-semibold" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
               Contact
             </h1>
-            <p className="mt-4 lg:mt-6 text-base lg:text-xl xl:text-2xl leading-relaxed" style={{ fontFamily: "'Barlow', sans-serif" }}>
+            <p className="mt-3 sm:mt-4 md:mt-5 lg:mt-6 text-sm sm:text-base lg:text-xl xl:text-2xl leading-relaxed" style={{ fontFamily: "'Barlow', sans-serif" }}>
               Ready to publish your book? Shark Book Publishers is here to support you at every step. Whether you have questions, need expert guidance, or want customized publishing solutions for your manuscript, our team is just a message away. Let's bring your story to life together!
             </p>
-            <div className="mt-8 lg:mt-12 space-y-4 lg:space-y-6">
-              <div className="flex items-center gap-3 lg:gap-4">
-                <PhoneIcon />
+            <div className="mt-6 sm:mt-7 md:mt-8 lg:mt-12 space-y-3 sm:space-y-4 lg:space-y-6">
+              <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#063f4a] rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.9999 16.5C21.9999 17.0304 21.7892 17.5391 21.4141 17.9142C21.039 18.2893 20.5303 18.5 19.9999 18.5C17.4799 18.5 13.7399 17.55 10.1999 14.1C6.5599 10.56 5.4999 6.82 5.4999 4.3C5.4999 3.76957 5.71062 3.26086 6.08569 2.88579C6.46076 2.51071 6.96947 2.3 7.4999 2.3C8.03033 2.3 8.53904 2.51071 8.91411 2.88579C9.28918 3.26086 9.4999 3.76957 9.4999 4.3C9.4999 5.38 9.9399 6.43 10.2499 6.91C10.5699 7.4 10.3799 8.27 9.9499 8.7L8.8399 9.81C9.6499 11.41 10.9999 12.76 12.5999 13.57L13.7099 12.46C14.1399 12.03 15.0099 11.84 15.4999 12.16C15.9799 12.47 17.0299 12.91 18.1099 12.91C18.6303 12.91 19.139 13.1207 19.5141 13.4958C19.8892 13.8709 20.1099 14.3796 20.1099 14.91C20.1099 15.4404 19.8992 15.9491 19.5241 16.3242C19.149 16.7005 18.7303 17.5 21.9999 16.5Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
                 <div>
-                  <h3 className="font-bold text-base lg:text-lg">Phone:</h3>
-                  <p className="text-base lg:text-lg">+1 (469) 452-7618</p>
+                  <h3 className="font-bold text-sm sm:text-base lg:text-lg">Phone:</h3>
+                  <p className="text-sm sm:text-base lg:text-lg">+1 (469) 452-7618</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 lg:gap-4">
-                <GeneralInquiriesIcon />
+              <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#063f4a] rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 2L11 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
                 <div>
-                  <h3 className="font-bold text-base lg:text-lg">Email:</h3>
-                  <p className="text-base lg:text-lg">contact@sharksbookpublishers.com</p>
+                  <h3 className="font-bold text-sm sm:text-base lg:text-lg">Email:</h3>
+                  <p className="text-sm sm:text-base lg:text-lg break-words">contact@sharksbookpublishers.com</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 lg:gap-4">
-                <LocationIcon />
+              <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#063f4a] rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg width="20" height="20" className="sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.3639 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
                 <div>
-                  <h3 className="font-bold text-base lg:text-lg">Address:</h3>
-                  <p className="text-base lg:text-lg">22023 Rustic Canyon Ln Richmond, TX 77469, USA.</p>
+                  <h3 className="font-bold text-sm sm:text-base lg:text-lg">Address:</h3>
+                  <p className="text-sm sm:text-base lg:text-lg">22023 Rustic Canyon Ln Richmond, TX 77469, USA.</p>
                 </div>
               </div>
             </div>
@@ -332,15 +346,15 @@ export default function Contact({ customHeading, customSubtext }: FooterProps = 
 
           {/* Right Column: Contact Form */}
           <motion.div 
-            className="bg-[#35c4dd] rounded-2xl lg:rounded-3xl p-6 lg:p-8 xl:p-12 text-white"
+            className="bg-[#35c4dd] rounded-xl sm:rounded-2xl lg:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-8 xl:p-12 text-white"
             variants={rightVariants}
             initial="hidden"
             animate={controls}
           >
-            <h2 className="text-2xl lg:text-3xl font-bold" style={{ fontFamily: "'Barlow', sans-serif" }}>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold" style={{ fontFamily: "'Barlow', sans-serif" }}>
               {customHeading ? "Let's Get Started" : "Let's Talk About Your Book"}
             </h2>
-            <form onSubmit={handleSubmit} className="mt-6 lg:mt-8 space-y-4 lg:space-y-6">
+            <form onSubmit={handleSubmit} className="mt-4 sm:mt-5 md:mt-6 lg:mt-8 space-y-3 sm:space-y-4 lg:space-y-6">
               {/* Status Message */}
               {submitStatus.type && (
                 <div className={`p-4 rounded-lg text-sm font-medium ${
@@ -353,7 +367,7 @@ export default function Contact({ customHeading, customSubtext }: FooterProps = 
               )}
               
               <div>
-                <label htmlFor="name" className="block text-sm font-medium ml-4 mb-1">Name:</label>
+                <label htmlFor="name" className="block text-xs sm:text-sm font-medium ml-3 sm:ml-4 mb-1">Name:</label>
                 <input 
                   type="text" 
                   id="name" 
@@ -361,12 +375,12 @@ export default function Contact({ customHeading, customSubtext }: FooterProps = 
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full h-12 lg:h-14 bg-white rounded-full px-4 lg:px-6 text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" 
+                  className="w-full h-11 sm:h-12 lg:h-14 bg-white rounded-full px-4 lg:px-6 text-sm sm:text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" 
                 />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium ml-4 mb-1">Email:</label>
+                  <label htmlFor="email" className="block text-xs sm:text-sm font-medium ml-3 sm:ml-4 mb-1">Email:</label>
                   <input 
                     type="email" 
                     id="email" 
@@ -374,29 +388,29 @@ export default function Contact({ customHeading, customSubtext }: FooterProps = 
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full h-12 lg:h-14 bg-white rounded-full px-4 lg:px-6 text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" 
+                    className="w-full h-11 sm:h-12 lg:h-14 bg-white rounded-full px-4 lg:px-6 text-sm sm:text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" 
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium ml-4 mb-1">Phone:</label>
+                  <label htmlFor="phone" className="block text-xs sm:text-sm font-medium ml-3 sm:ml-4 mb-1">Phone:</label>
                   <input 
                     type="tel" 
                     id="phone" 
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full h-12 lg:h-14 bg-white rounded-full px-4 lg:px-6 text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" 
+                    className="w-full h-11 sm:h-12 lg:h-14 bg-white rounded-full px-4 lg:px-6 text-sm sm:text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" 
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="projectDetails" className="block text-sm font-medium ml-4 mb-1">Select Project Details:</label>
+                <label htmlFor="projectDetails" className="block text-xs sm:text-sm font-medium ml-3 sm:ml-4 mb-1">Select Project Details:</label>
                 <select
                   id="projectDetails"
                   name="projectDetails"
                   value={formData.projectDetails}
                   onChange={handleInputChange}
-                  className="w-full h-12 lg:h-14 bg-white rounded-full px-4 lg:px-6 text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
+                  className="w-full h-11 sm:h-12 lg:h-14 bg-white rounded-full px-4 lg:px-6 text-sm sm:text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
                 >
                   <option value="">Select Project Details</option>
                   <option value="manuscript-review">Manuscript Review</option>
@@ -410,7 +424,7 @@ export default function Contact({ customHeading, customSubtext }: FooterProps = 
                 </select>
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium ml-4 mb-1">Message:</label>
+                <label htmlFor="message" className="block text-xs sm:text-sm font-medium ml-3 sm:ml-4 mb-1">Message:</label>
                 <textarea 
                   id="message" 
                   name="message"
@@ -418,7 +432,7 @@ export default function Contact({ customHeading, customSubtext }: FooterProps = 
                   onChange={handleInputChange}
                   required
                   rows={4} 
-                  className="w-full bg-white rounded-2xl lg:rounded-3xl p-4 lg:p-6 text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
+                  className="w-full bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl p-3 sm:p-4 lg:p-6 text-sm sm:text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
                 ></textarea>
               </div>
               
@@ -503,18 +517,18 @@ export default function Contact({ customHeading, customSubtext }: FooterProps = 
       
       {/* THE FIX: Bottom Footer Bar now has `mt-0` to remove the gap. */}
       <div className="relative z-10 mt-0">
-        <div className="bg-[#063f4a] py-4 lg:py-6">
-          <div className="container mx-auto px-5 lg:px-20 flex flex-col md:flex-row items-center justify-between gap-4 lg:gap-6 text-white text-xs lg:text-sm">
-            <p>© 2025 Shark Book Publishers. All Rights Reserved.</p>
-            <div className="flex items-center gap-3 lg:gap-4">
-              <span>Follow us:</span>
+        <div className="bg-[#063f4a] py-4 sm:py-5 lg:py-6">
+          <div className="container mx-auto px-4 sm:px-5 md:px-6 lg:px-20 flex flex-col md:flex-row items-center justify-center md:justify-between gap-3 sm:gap-4 lg:gap-6 text-white text-xs sm:text-sm">
+            <p className="text-center md:text-left">© 2025 Shark Book Publishers. All Rights Reserved.</p>
+            <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
+              <span className="text-xs sm:text-sm">Follow us:</span>
               <div className="flex items-center gap-2 lg:gap-3">
                 <SocialIcon path={socialLinks.facebook} href="https://www.facebook.com/Ecommercesharksofficial" />
                 <SocialIcon path={socialLinks.linkedin} href="https://www.linkedin.com/company/ecom-sharkss/posts/?feedView=all" />
                 <SocialIcon path={socialLinks.instagram} href="https://www.instagram.com/ecommerce.sharks/" />
               </div>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 text-xs sm:text-sm">
               <Link href="/news-events" className="hover:text-[#35c4dd] transition-colors">News and Event</Link>
               <span>|</span>
               <a href="#" className="hover:text-[#35c4dd] transition-colors">Privacy Policy</a>
