@@ -53,8 +53,8 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <Head>
-        <title>Privacy Policy - ECOM SHARKS</title>
-        <meta name="description" content="Privacy Policy for ECOM SHARKS. Learn how we collect, use, and protect your information." />
+        <title>Privacy Policy - Shark Book Publishers</title>
+        <meta name="description" content="Privacy Policy for Shark Book Publishers. Learn how we collect, use, and protect your information." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       
@@ -88,7 +88,7 @@ export default function PrivacyPolicyPage() {
                   Introduction
                 </h2>
                 <p className="text-base lg:text-lg text-[#2c2020] leading-relaxed" style={{ fontFamily: "'Barlow', sans-serif" }}>
-                  ECOM SHARKS ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+                  Shark Book Publishers ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our book publishing services.
                 </p>
               </motion.div>
 
@@ -107,7 +107,7 @@ export default function PrivacyPolicyPage() {
                     </p>
                     <ul className="list-disc list-inside mt-2 space-y-1 text-[#2c2020]" style={{ fontFamily: "'Barlow', sans-serif" }}>
                       <li>Name and contact information (email, phone number, address)</li>
-                      <li>Business information and preferences</li>
+                      <li>Author information, manuscript details, and publishing preferences</li>
                       <li>Communication preferences</li>
                       <li>Any other information you choose to provide</li>
                     </ul>
@@ -138,13 +138,13 @@ export default function PrivacyPolicyPage() {
                   We use the information we collect to:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-[#2c2020]" style={{ fontFamily: "'Barlow', sans-serif" }}>
-                  <li>Provide, operate, and maintain our services</li>
-                  <li>Improve, personalize, and expand our services</li>
+                  <li>Provide, operate, and maintain our book publishing services</li>
+                  <li>Improve, personalize, and expand our publishing services</li>
                   <li>Understand and analyze how you use our services</li>
-                  <li>Develop new products, services, features, and functionality</li>
-                  <li>Communicate with you for customer service and support</li>
-                  <li>Send you marketing and promotional communications (with your consent)</li>
-                  <li>Process transactions and send related information</li>
+                  <li>Develop new publishing services, features, and functionality</li>
+                  <li>Communicate with you for customer service and support regarding your book publishing journey</li>
+                  <li>Send you marketing and promotional communications about our publishing services (with your consent)</li>
+                  <li>Process publishing transactions and send related information</li>
                   <li>Find and prevent fraud</li>
                 </ul>
               </motion.div>
@@ -244,7 +244,7 @@ export default function PrivacyPolicyPage() {
                   If you have any questions about this Privacy Policy or our privacy practices, please contact us:
                 </p>
                 <div className="bg-[#f8fafc] rounded-lg p-6" style={{ fontFamily: "'Barlow', sans-serif" }}>
-                  <p className="text-[#2c2020] mb-2"><strong>Email:</strong> info@ecomsharkss.com</p>
+                  <p className="text-[#2c2020] mb-2"><strong>Email:</strong> contact@sharksbookpublishers.com</p>
                   <p className="text-[#2c2020] mb-2"><strong>Phone:</strong> (469) 480-7938</p>
                   <p className="text-[#2c2020]"><strong>Address:</strong> 22023 Rustic Canyon Ln, Richmond, TX 77469, USA</p>
                 </div>

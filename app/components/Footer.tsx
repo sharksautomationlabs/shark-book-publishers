@@ -523,9 +523,9 @@ export default function Contact({ customHeading, customSubtext }: FooterProps = 
             <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
               <span className="text-xs sm:text-sm">Follow us:</span>
               <div className="flex items-center gap-2 lg:gap-3">
-                <SocialIcon path={socialLinks.facebook} href="https://www.facebook.com/Ecommercesharksofficial" />
-                <SocialIcon path={socialLinks.linkedin} href="https://www.linkedin.com/company/ecom-sharkss/posts/?feedView=all" />
-                <SocialIcon path={socialLinks.instagram} href="https://www.instagram.com/ecommerce.sharks/" />
+                <SocialIcon path={socialLinks.facebook} href="https://www.facebook.com/SharksBookPublishers/" />
+                <SocialIcon path={socialLinks.linkedin} href="https://www.linkedin.com/company/sharksbookpublishers/posts/?feedView=all" />
+                <SocialIcon path={socialLinks.instagram} href="https://www.instagram.com/sharksbookpublishers/" />
               </div>
             </div>
             <div className="flex items-center gap-2 text-xs sm:text-sm">

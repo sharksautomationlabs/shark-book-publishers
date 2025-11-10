@@ -12,16 +12,16 @@ const imgArrowIcon = "/images/arrow-icon.svg";
 // Call process steps data
 const callProcessSteps = [
   {
-    title: "Your Situation",
-    description: "We'll review your background and goals to understand how our system can best serve you."
+    title: "Your Manuscript",
+    description: "We'll review your manuscript and publishing goals to understand how we can best help you publish your book."
   },
   {
-    title: "Our System", 
-    description: "We'll walk you through a live demonstration of our automated store system, so you can see it in action."
+    title: "Our Publishing Process", 
+    description: "We'll walk you through our professional publishing system, from editing and cover design to formatting and distribution."
   },
   {
-    title: "Your Path",
-    description: "We'll map out a personalized strategy to help you achieve a guaranteed return in just 90 days."
+    title: "Your Publishing Path",
+    description: "We'll map out a personalized publishing strategy to help you get your book published in 24 hours or we work for free."
   }
 ];
 
@@ -141,7 +141,7 @@ export default function CallProcess() {
               className="mt-4 max-w-4xl mx-auto text-base lg:text-lg text-gray-200 leading-relaxed"
               style={{ fontFamily: "'Barlow', sans-serif" }}
             >
-              We've helped investors and entrepreneurs just like you launch profitable, hands-off e-commerce stores. Not a sales pitch — a strategy session with actionable steps.
+              We've helped authors and writers just like you publish their books and share their stories with the world. Not a sales pitch — a strategy session with actionable steps to get your book published.
             </p>
           </motion.div>
 

@@ -96,14 +96,14 @@ export default function CTASection() {
               className="text-3xl lg:text-5xl font-bold text-[#063f4a] mb-6" 
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
-              Ready to Launch Your Passive Income Asset?
+              Ready to Publish Your Book?
             </h2>
             
             <p 
               className="text-lg lg:text-xl text-[#2c2420] leading-relaxed mb-8"
               style={{ fontFamily: "'Barlow', sans-serif" }}
             >
-              During your free strategy call, we'll show you exactly how our system works and map out your path to a guaranteed return.
+              During your free strategy call, we'll show you exactly how our publishing process works and map out your path to getting your book published in 24 hours or we work for free.
             </p>
             
             {/* Calendly Widget */}

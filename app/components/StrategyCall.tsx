@@ -79,16 +79,16 @@ const AnimatedCounter = ({ value, duration = 2000 }: { value: string; duration?:
 // Statistics data
 const statistics = [
   {
-    label: "Total Profit (Last 30 Days)",
-    value: "$52,260.9"
+    label: "Books Published (Last 30 Days)",
+    value: "150+"
   },
   {
-    label: "Return on Investment",
-    value: "4x"
+    label: "Author Satisfaction Rate",
+    value: "98%"
   },
   {
-    label: "Success Rate",
-    value: "89%"
+    label: "Publishing Success Rate",
+    value: "100%"
   }
 ];
 
@@ -214,7 +214,7 @@ export default function StrategyCall() {
               className="text-lg lg:text-xl text-[#2c2420] leading-relaxed max-w-4xl mx-auto"
               style={{ fontFamily: "'Barlow', sans-serif" }}
             >
-              In this call, our senior business consultant will guide you step-by-step on how this automation system works and the actionable steps through which we can help accomplish at least $4,000 in sales for you in just 60 days.
+              In this call, our senior publishing consultant will guide you step-by-step on how our publishing process works and the actionable steps through which we can help you get your book published in 24 hours or we work for free.
             </p>
           </motion.div>
 
@@ -224,7 +224,7 @@ export default function StrategyCall() {
             className="mb-12 lg:mb-16"
           >
             <h2 className="text-2xl lg:text-3xl font-bold text-[#063f4a] mb-8 text-center" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-              Guaranteed High Profits Within the First Month
+              Guaranteed Publishing Success
             </h2>
             
              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">

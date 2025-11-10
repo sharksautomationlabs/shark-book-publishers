@@ -22,8 +22,8 @@ interface EcommerceAutomationExpertsProps {
 }
 
 export default function EcommerceAutomationExperts({ 
-  title = "Meet the Experts Behind ECOM SHARKSS Success",
-  subtitle = "Our dedicated team stands at the forefront of Amazon's fulfillment programs and beyond. We don't just help businesses grow—we empower them to scale and thrive!"
+  title = "Meet the Experts Behind Sharks Book Publishers",
+  subtitle = "Our dedicated team stands at the forefront of professional book publishing. We don't just help authors publish—we empower them to share their stories with the world and achieve their publishing dreams!"
 }: EcommerceAutomationExpertsProps) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const controls = useAnimation();

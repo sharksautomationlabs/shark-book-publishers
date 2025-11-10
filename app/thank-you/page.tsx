@@ -79,7 +79,7 @@ export default function ThanksPage() {
     <div className="w-full bg-white">
       <ThankYouHeader 
         heroTitle="You're In! Let's Get Ready for Your Call"
-        heroSubtitle="Congratulations! Your call is booked. This is the first step toward building your hands-off e-commerce business. Before we talk, I have two quick videos below that will answer all of your questions and make our call as productive as possible."
+        heroSubtitle="Congratulations! Your call is booked. This is the first step toward publishing your book and sharing your story with the world. Before we talk, I have two quick videos below that will answer all of your questions and make our call as productive as possible."
       />
 
       {/* Videos Section */}
@@ -176,7 +176,7 @@ export default function ThanksPage() {
                     className="text-2xl lg:text-3xl font-bold text-white mb-4" 
                     style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                   >
-                    Watch This Next: See Exactly How Our Clients Are Hitting $4,000 a Month.
+                    Watch This Next: See Exactly How Our Authors Are Getting Their Books Published.
                   </h2>
                   
                   <p 
@@ -190,7 +190,7 @@ export default function ThanksPage() {
                     <iframe
                       className="absolute top-0 left-0 w-full h-full"
                       src="https://www.youtube.com/embed/3kE6P9VgPuc?si=gsdM9QvEVxgrUo3S"
-                      title="See Exactly How Our Clients Are Hitting $4,000 a Month"
+                      title="See Exactly How Our Authors Are Getting Their Books Published"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
@@ -217,14 +217,14 @@ export default function ThanksPage() {
                 className="text-2xl lg:text-4xl font-bold text-[#063f4a] mb-6" 
                 style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
               >
-                Ready to Transform Your Business?
+                Ready to Publish Your Book?
               </h2>
               
               <p 
                 className="text-lg lg:text-xl text-[#2c2420] leading-relaxed" 
                 style={{ fontFamily: "'Barlow', sans-serif" }}
               >
-                We're excited to speak with you and help you build your hands-off e-commerce business. See you on the call!
+                We're excited to speak with you and help you publish your book and share your story with the world. See you on the call!
               </p>
             </motion.div>
           </motion.div>

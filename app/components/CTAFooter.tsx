@@ -106,10 +106,10 @@ export default function CTAFooter() {
             animate={controls}
           >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 lg:mb-6 leading-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
-              Ready for a Guaranteed Return?
+              Ready to Publish Your Book?
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-gray-200 leading-relaxed max-w-2xl mx-auto" style={{ fontFamily: "'Barlow', sans-serif" }}>
-              Book your free, no-obligation strategy call with one of our experts.
+              Book your free, no-obligation strategy call with one of our publishing experts.
             </p>
           </motion.div>
 
