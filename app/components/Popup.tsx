@@ -151,20 +151,20 @@ export default function Popup() {
 
   return (
     <div 
-      className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/70 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-[999999] flex items-center justify-center bg-black/70 backdrop-blur-sm animate-fadeIn p-2 sm:p-4"
       onClick={() => setShowImagePopup(false)}
     >
       <div 
-        className="relative max-w-5xl w-full mx-4 flex items-center justify-center animate-scaleIn"
+        className="relative max-w-[95vw] sm:max-w-2xl md:max-w-4xl lg:max-w-5xl w-full flex items-center justify-center animate-scaleIn"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={() => setShowImagePopup(false)}
-          className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-colors shadow-lg"
+          className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-colors shadow-lg"
           aria-label="Close popup"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className="w-4 h-4 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18 6L6 18M6 6L18 18" stroke="#063f4a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
@@ -174,15 +174,15 @@ export default function Popup() {
           <img
             src="/images/Popup.png"
             alt="Popup Image"
-            className="max-w-full max-h-[90vh] w-auto h-auto object-contain"
+            className="max-w-full max-h-[85vh] sm:max-h-[90vh] w-auto h-auto object-contain"
             style={{ display: 'block' }}
           />
           
-          {/* Form Fields - Positioned on the image, slightly to the right */}
-          <form onSubmit={handleSubmit} className="absolute right-[18%] top-[56%] -translate-y-1/2 w-full max-w-[280px] space-y-4">
+          {/* Form Fields - Positioned on the image, responsive positioning */}
+          <form onSubmit={handleSubmit} className="absolute left-1/2 translate-x-[calc(-50%+55px)] sm:left-auto sm:translate-x-0 sm:right-[12%] md:right-[15%] lg:right-[18%] top-[58%] sm:top-[52%] md:top-[54%] lg:top-[56%] -translate-y-1/2 w-[30%] sm:w-[85%] md:w-[75%] lg:w-full max-w-[90px] sm:max-w-[260px] md:max-w-[280px] space-y-0.5 sm:space-y-3 md:space-y-4">
             {/* Status Message */}
             {submitStatus.type && (
-              <div className={`p-3 rounded-lg text-xs font-medium ${
+              <div className={`p-1 sm:p-3 rounded-lg text-[8px] sm:text-xs font-medium ${
                 submitStatus.type === 'success' 
                   ? 'bg-green-100 text-green-800 border border-green-200' 
                   : 'bg-red-100 text-red-800 border border-red-200'
@@ -199,7 +199,7 @@ export default function Popup() {
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#35c4dd] focus:outline-none text-[#063f4a] placeholder-gray-400 bg-white/95 backdrop-blur-sm"
+                className="w-full px-1 py-0.5 sm:px-4 sm:py-3 md:py-3 rounded-full border border-gray-300 sm:border-2 focus:border-[#35c4dd] focus:outline-none text-[9px] sm:text-base text-[#063f4a] placeholder-gray-400 bg-white/98 backdrop-blur-sm transition-all duration-200"
                 style={{ fontFamily: "'Barlow', sans-serif" }}
               />
             </div>
@@ -211,7 +211,7 @@ export default function Popup() {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#35c4dd] focus:outline-none text-[#063f4a] placeholder-gray-400 bg-white/95 backdrop-blur-sm"
+                className="w-full px-1 py-0.5 sm:px-4 sm:py-3 md:py-3 rounded-full border border-gray-300 sm:border-2 focus:border-[#35c4dd] focus:outline-none text-[9px] sm:text-base text-[#063f4a] placeholder-gray-400 bg-white/98 backdrop-blur-sm transition-all duration-200"
                 style={{ fontFamily: "'Barlow', sans-serif" }}
               />
             </div>
@@ -222,7 +222,7 @@ export default function Popup() {
                 placeholder="Phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-full border-2 border-gray-300 focus:border-[#35c4dd] focus:outline-none text-[#063f4a] placeholder-gray-400 bg-white/95 backdrop-blur-sm"
+                className="w-full px-1 py-0.5 sm:px-4 sm:py-3 md:py-3 rounded-full border border-gray-300 sm:border-2 focus:border-[#35c4dd] focus:outline-none text-[9px] sm:text-base text-[#063f4a] placeholder-gray-400 bg-white/98 backdrop-blur-sm transition-all duration-200"
                 style={{ fontFamily: "'Barlow', sans-serif" }}
               />
             </div>
@@ -240,23 +240,23 @@ export default function Popup() {
             </div>
 
             {/* Submit Button */}
-            <div>
+            <div className="pt-0">
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className={`group flex items-center justify-between w-full h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2 ${
+                className={`group flex items-center justify-center sm:justify-between w-full h-[11px] sm:h-[48px] md:h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-[9px] sm:text-lg md:text-xl shadow-lg overflow-hidden relative p-0.5 sm:p-2 transition-all duration-200 ${
                   isSubmitting 
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                    : ''
+                    : 'hover:bg-[#2db3c9] active:scale-[0.98]'
                 }`}
                 style={{ fontFamily: "'Barlow', sans-serif" }}
               >
-                <span className="relative z-10 pl-3 whitespace-nowrap">
+                <span className="relative z-10 pl-0 sm:pl-3 whitespace-nowrap">
                   {isSubmitting ? 'Sending...' : 'Submit'}
                 </span>
                 {!isSubmitting && (
                   <>
-                    <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-2">
+                    <span className="hidden sm:flex bg-white rounded-full w-[20px] h-[20px] md:w-[24px] md:h-[24px] items-center justify-center relative z-10 flex-shrink-0 -ml-2">
                     </span>
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
                   </>

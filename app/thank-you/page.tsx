@@ -79,7 +79,7 @@ export default function ThanksPage() {
     <div className="w-full bg-white">
       <ThankYouHeader 
         heroTitle="You're In! Let's Get Ready for Your Call"
-        heroSubtitle="Congratulations! Your call is booked. This is the first step toward publishing your book and sharing your story with the world. Before we talk, I have two quick videos below that will answer all of your questions and make our call as productive as possible."
+        heroSubtitle="Congratulations! Your call is booked. This is the first step toward publishing your book and sharing your story with the world. Before we talk, watch the video below that will answer all of your questions and make our call as productive as possible."
       />
 
       {/* Videos Section */}
@@ -118,79 +118,11 @@ export default function ThanksPage() {
                 
                 {/* Content */}
                 <div className="relative z-10 p-6 lg:p-8">
-                  <h2 
-                    className="text-2xl lg:text-3xl font-bold text-white mb-4" 
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                  >
-                    Watch This First: How to Get the Most Out of Our Call.
-                  </h2>
-                  
-                  <p 
-                    className="text-base lg:text-lg text-gray-200 mb-6 leading-relaxed" 
-                    style={{ fontFamily: "'Barlow', sans-serif" }}
-                  >
-                    This video will walk you through what to expect on the call and what you need to prepare, so we can get right to the details and not waste a single minute.
-                  </p>
-                  
                   <div className="relative w-full bg-white rounded-xl overflow-hidden" style={{ paddingBottom: '56.25%' }}>
                     <iframe
                       className="absolute top-0 left-0 w-full h-full"
-                      src="https://www.youtube.com/embed/PkzqxZQwK_E?si=VStYF-HeP5wcyBUB"
+                      src="https://www.youtube.com/embed/BuZqsizq24w"
                       title="How to Get the Most Out of Our Call"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Second Video */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 }}
-            >
-              <div className="relative rounded-2xl lg:rounded-3xl shadow-2xl overflow-hidden">
-                {/* Background Video */}
-                <div className="absolute inset-0 z-0">
-                  <video 
-                    ref={videoRef}
-                    autoPlay={isInView}
-                    loop 
-                    muted 
-                    playsInline
-                    preload="metadata"
-                    className="absolute inset-0 w-full h-full object-cover object-center"
-                    poster="/images/bi-vid.jpeg"
-                  >
-                    <source src="/images/bi-vid.mp4" type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-[#052126]/70" />
-                </div>
-                
-                {/* Content */}
-                <div className="relative z-10 p-6 lg:p-8">
-                  <h2 
-                    className="text-2xl lg:text-3xl font-bold text-white mb-4" 
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                  >
-                    Watch This Next: See Exactly How Our Authors Are Getting Their Books Published.
-                  </h2>
-                  
-                  <p 
-                    className="text-base lg:text-lg text-gray-200 mb-6 leading-relaxed" 
-                    style={{ fontFamily: "'Barlow', sans-serif" }}
-                  >
-                    This video will walk you through what to expect on the call and what you need to prepare, so we can get right to the details and not waste a single minute.
-                  </p>
-                  
-                  <div className="relative w-full bg-white rounded-xl overflow-hidden" style={{ paddingBottom: '56.25%' }}>
-                    <iframe
-                      className="absolute top-0 left-0 w-full h-full"
-                      src="https://www.youtube.com/embed/3kE6P9VgPuc?si=gsdM9QvEVxgrUo3S"
-                      title="See Exactly How Our Authors Are Getting Their Books Published"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
