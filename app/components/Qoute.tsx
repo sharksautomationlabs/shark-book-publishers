@@ -175,7 +175,7 @@ export default function QuoteSection() {
               <Image src={imgGroup1321315061} alt="Phone Icon" fill className="object-contain" />
             </div>
             <p className="text-xl lg:text-[45px] font-semibold tracking-[2px] lg:tracking-[4.2px]" style={{ fontFamily: "'Barlow Condensed', sans-serif", ...textShadow }}>
-              +1 (469) 452-7618
+              (469) 452-7618
             </p>
           </div>
         </motion.div>

@@ -22,11 +22,11 @@ export default function TickerTape2() {
   const duplicatedLogos = [...trustLogos, ...trustLogos];
 
   return (
-    <div className="w-full bg-[#35c4dd] py-0 overflow-x-hidden overflow-y-hidden border-y border-gray-200" style={{ height: 'fit-content', maxHeight: '140px' }}>
+    <div className="w-full bg-white py-0 overflow-x-hidden overflow-y-hidden border-y border-gray-200" style={{ height: 'fit-content', maxHeight: '140px' }}>
       <Marquee
         speed={50}
         gradient={true}
-        gradientColor="rgb(53, 196, 221)"
+        gradientColor="rgb(255, 255, 255)"
         gradientWidth={100}
         pauseOnHover={false}
         className="flex items-center overflow-y-hidden"
@@ -35,7 +35,7 @@ export default function TickerTape2() {
         {duplicatedLogos.map((logo, index) => (
           <div
             key={`${logo}-${index}`}
-            className="flex items-center justify-center mx-8 lg:mx-12 h-14 lg:h-20 w-auto group overflow-hidden"
+            className="flex items-center justify-center mx-4 lg:mx-6 h-14 lg:h-20 w-auto group overflow-hidden"
             style={{ height: '100%', maxHeight: '140px' }}
           >
             <div className="relative w-[180px] h-[120px] lg:w-[220px] lg:h-[150px] overflow-hidden transition-transform duration-300 group-hover:scale-110">

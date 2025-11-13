@@ -21,28 +21,28 @@ interface Author {
 }
 
 const authors: Author[] = [
-  {
+   {
     id: 1,
-    name: 'Daniel Alston',
+    name: 'Eleanor Hartwell',
     description:
-      "Children's Book | Published Books: 01\n\nDaniel Alston is known for his engaging and imaginative children's books, bringing stories to life for young readers.",
-    image: '/images/author-img/author-1.png',
-  },
-  {
+     "Weaving emotion into every word.\n\nEleanor Hartwell is a contemporary fiction author whose stories explore the quiet power of human connection. With a background in psychology and a lifelong love for storytelling, she captures the beauty of everyday life through characters that feel real, flawed, and unforgettable.",
+    image: '/new-author-.png',
+   },
+   {
     id: 2,
-    name: 'Ariel H. Parrott',
+    name: 'Daniel Wren',
     description:
-      'Fiction & Romance | Published Books: 03\n\nAriel H. Parrott is a passionate fiction and romance author who weaves heartfelt stories filled with emotion, connection, and unforgettable characters.',
-    image: '/images/author-img/author-2.png',
-  },
-  {
+     'Exploring truth, one story at a time.\n\nDaniel Wren is a historical fiction novelist known for bringing forgotten eras to life. His writing blends meticulous research with poetic storytelling, immersing readers in richly detailed worlds that resonate with timeless human themes.',
+    image: '/new-author-2.png',
+   },
+   {
     id: 3,
-    name: 'Judith Hobson',
+    name: 'Clara Mendel',
     description:
-      'Self-Biography | Published Books: 05\n\nJudith Hobson writes self biographies, sharing personal journeys and life experiences through her published works.',
-    image: '/images/author-img/author-3.png',
-  },
-];
+     'Where science meets storytelling.\n\nClara Mendel writes science-infused speculative fiction and essays about the future of humanity. With a background in biology and tech ethics, her work bridges imagination and insight — turning complex ideas into emotionally charged narratives.',
+    image: '/new-author-3.png',
+   },
+  ];
 
 export default function AuthorsSection(): React.ReactElement {
   return (

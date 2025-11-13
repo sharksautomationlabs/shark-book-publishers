@@ -126,6 +126,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${barlow.variable} ${barlowCondensed.variable} antialiased`}
+        suppressHydrationWarning
       >
         {children}
         

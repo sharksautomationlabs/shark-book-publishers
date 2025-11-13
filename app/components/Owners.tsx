@@ -226,7 +226,7 @@ export default function Owners() {
                     className="text-lg sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl font-semibold tracking-wider"
                     style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                   >
-                    +1 (469) 452-7618
+                    (469) 452-7618
                   </span>
                 </div>
                 {/* Get a Quote Button */}

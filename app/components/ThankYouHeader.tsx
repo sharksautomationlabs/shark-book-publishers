@@ -82,7 +82,7 @@ export default function ThankYouHeader({
               <div className="flex items-center gap-8">
                 <a href="tel:4694807938" className="flex items-center gap-3 text-white text-[20px] font-medium" style={{ fontFamily: "'Barlow', sans-serif", ...textShadow }}>
                   <Image src={imgGroup1000004908} alt="phone" width={32} height={32} />
-                  <span> +1 (469) 452-7618</span>
+                  <span> (469) 452-7618</span>
                 </a>
                 <a href="mailto:contact@sharksbookpublishers.com" className="flex items-center gap-3 text-white text-[20px] font-medium" style={{ fontFamily: "'Barlow', sans-serif", ...textShadow }}>
                   <Image src={imgGroup1000004909} alt="email" width={32} height={32} />

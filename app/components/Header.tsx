@@ -124,13 +124,13 @@ export default function Header({
 
           <header className="absolute top-0 left-0 w-full z-[99999] px-4 sm:px-6 md:px-8 lg:px-20">
             <div
-              className="h-[48px] w-full bg-cover bg-center rounded-b-2xl hidden lg:flex items-center justify-end px-8"
+              className="h-[40px] w-full bg-cover bg-center rounded-b-2xl hidden lg:flex items-center justify-end px-8"
               style={{ backgroundImage: `url('${imgRectangle72}')` }}
             >
               <div className="flex items-center gap-8">
                 <a href="tel:4694807938" className="flex items-center gap-3 text-white text-[20px] font-medium" style={{ fontFamily: "'Barlow', sans-serif", ...textShadow }}>
                   <Image src={imgGroup1000004908} alt="phone" width={32} height={32} />
-                  <span> +1 (469) 452-7618</span>
+                  <span> (469) 452-7618</span>
                 </a>
                 <a href="mailto:info@ecomsharkss.com" className="flex items-center gap-3 text-white text-[20px] font-medium" style={{ fontFamily: "'Barlow', sans-serif", ...textShadow }}>
                   <Image src={imgGroup1000004909} alt="email" width={32} height={32} />
@@ -139,7 +139,7 @@ export default function Header({
               </div>
             </div>
 
-            <div className="mt-1 sm:mt-2 md:mt-4 lg:mt-6 flex items-center justify-between">
+            <div className="-mt-2 lg:-mt-3 flex items-center justify-between">
                 <div className="w-[130px] h-[95px] sm:w-[180px] sm:h-[130px] md:w-[220px] md:h-[165px] lg:w-[260px] lg:h-[195px] relative fade-in -ml-1 lg:-ml-1">
                     <Image src={imgImage1} alt="Shark Book Publishers Logo" fill className="object-contain" priority />
                 </div>
@@ -226,7 +226,7 @@ export default function Header({
                       style={{ fontFamily: "'Barlow', sans-serif" }}
                     >
                       <Image src={imgGroup1000004908} alt="phone" width={16} height={16} className="sm:w-4 sm:h-4" />
-                      <span className="break-all">+1 (469) 452-7618</span>
+                      <span className="break-all">(469) 452-7618</span>
                     </a>
                     <a 
                       href="mailto:info@ecomsharkss.com" 
@@ -351,11 +351,11 @@ export default function Header({
           </div>
 
           {/* Mobile: Two-column layout, Desktop: Original layout */}
-          <div className="lg:hidden absolute top-[20%] left-0 right-0 px-4 z-50">
+          <div className="lg:hidden absolute top-[12%] sm:top-[14%] left-0 right-0 px-4 z-50 mt-[50px]">
             <div className="grid grid-cols-2 gap-2 items-start">
               {/* Left Column: Text */}
-              <div className="col-span-1 pt-8">
-                <h1 className="text-white text-xl leading-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, ...textShadow }}>
+              <div className="col-span-1 pt-4 sm:pt-6">
+                <h1 className="text-white text-[18px] sm:text-[20px] leading-[1.2] sm:leading-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, ...textShadow }}>
                   {heroTitle.includes('$4,000') ? (
                     <>
                       {heroTitle.split('$4,000')[0]}
@@ -371,12 +371,32 @@ export default function Header({
                       )}
                     </>
                   ) : (() => {
-                    // Handle "24 Hours" first
-                    if (heroTitle.includes('24 Hours')) {
+                    // Format title in 3 lines: "Assured Sales & Publishing" / "in 24 Hours or We'll Work" / "For Free!"
+                    if (heroTitle.includes('Assured Sales & Publishing') && heroTitle.includes('24 Hours') && heroTitle.includes('For Free')) {
+                      return <>
+                        Assured Sales & Publishing<br />
+                        in <span className="text-[#35c4dd] font-bold">24 Hours</span> or We'll Work<br />
+                        For <span className="text-[#35c4dd] font-bold">Free</span>!
+                      </>;
+                    } else if (heroTitle.includes('Assured Sales & Publishing') && heroTitle.includes('24 hours') && heroTitle.includes('For free')) {
+                      return <>
+                        Assured Sales & Publishing<br />
+                        in <span className="text-[#35c4dd] font-bold">24 hours</span> or We'll Work<br />
+                        For <span className="text-[#35c4dd] font-bold">free</span>!
+                      </>;
+                    } else if (heroTitle.includes('24 Hours')) {
                       const before24 = heroTitle.split('24 Hours')[0];
                       const after24 = heroTitle.split('24 Hours')[1];
                       // Check if "Free" is in the remaining text
-                      if (after24.includes('Free')) {
+                      if (after24.includes(' For Free')) {
+                        const beforeForFree = after24.split(' For Free')[0];
+                        const afterFree = after24.split(' For Free')[1];
+                        return <>{before24}<span className="text-[#35c4dd] font-bold">24 Hours</span>{beforeForFree}<br /> For <span className="text-[#35c4dd] font-bold">Free</span>{afterFree}</>;
+                      } else if (after24.includes(' For free')) {
+                        const beforeForFree = after24.split(' For free')[0];
+                        const afterFree = after24.split(' For free')[1];
+                        return <>{before24}<span className="text-[#35c4dd] font-bold">24 Hours</span>{beforeForFree}<br /> For <span className="text-[#35c4dd] font-bold">free</span>{afterFree}</>;
+                      } else if (after24.includes('Free')) {
                         const beforeFree = after24.split('Free')[0];
                         const afterFree = after24.split('Free')[1];
                         return <>{before24}<span className="text-[#35c4dd] font-bold">24 Hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">Free</span>{afterFree}</>;
@@ -389,7 +409,15 @@ export default function Header({
                     } else if (heroTitle.includes('24 hours')) {
                       const before24 = heroTitle.split('24 hours')[0];
                       const after24 = heroTitle.split('24 hours')[1];
-                      if (after24.includes('Free')) {
+                      if (after24.includes(' For Free')) {
+                        const beforeForFree = after24.split(' For Free')[0];
+                        const afterFree = after24.split(' For Free')[1];
+                        return <>{before24}<span className="text-[#35c4dd] font-bold">24 hours</span>{beforeForFree}<br /> For <span className="text-[#35c4dd] font-bold">Free</span>{afterFree}</>;
+                      } else if (after24.includes(' For free')) {
+                        const beforeForFree = after24.split(' For free')[0];
+                        const afterFree = after24.split(' For free')[1];
+                        return <>{before24}<span className="text-[#35c4dd] font-bold">24 hours</span>{beforeForFree}<br /> For <span className="text-[#35c4dd] font-bold">free</span>{afterFree}</>;
+                      } else if (after24.includes('Free')) {
                         const beforeFree = after24.split('Free')[0];
                         const afterFree = after24.split('Free')[1];
                         return <>{before24}<span className="text-[#35c4dd] font-bold">24 hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">Free</span>{afterFree}</>;
@@ -399,6 +427,12 @@ export default function Header({
                         return <>{before24}<span className="text-[#35c4dd] font-bold">24 hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">free</span>{afterFree}</>;
                       }
                       return <>{before24}<span className="text-[#35c4dd] font-bold">24 hours</span>{after24}</>;
+                    } else if (heroTitle.includes(' For Free')) {
+                      const parts = heroTitle.split(' For Free');
+                      return <>{parts[0]}<br /> For <span className="text-[#35c4dd] font-bold">Free</span>{parts[1]}</>;
+                    } else if (heroTitle.includes(' For free')) {
+                      const parts = heroTitle.split(' For free');
+                      return <>{parts[0]}<br /> For <span className="text-[#35c4dd] font-bold">free</span>{parts[1]}</>;
                     } else if (heroTitle.includes('Free')) {
                       const parts = heroTitle.split('Free');
                       return <>{parts[0]}<span className="text-[#35c4dd] font-bold">Free</span>{parts[1]}</>;
@@ -409,24 +443,16 @@ export default function Header({
                     return heroTitle;
                   })()}
                 </h1>
-                <div className="mt-3">
+                <div className="mt-2 sm:mt-3">
                   <Link 
                     href="/contact"
-                    className="group flex items-center justify-between w-full h-[36px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xs shadow-lg overflow-hidden relative p-1.5"
+                    className="group flex items-center justify-between w-full h-[32px] sm:h-[36px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-[11px] sm:text-xs shadow-lg overflow-hidden relative p-1 sm:p-1.5"
                   >
-                    <span className="relative z-10 pl-2 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Publish My Book</span>
-                    <span className="bg-white rounded-full w-[16px] h-[16px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-1">
+                    <span className="relative z-10 pl-1.5 sm:pl-2 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Publish My Book</span>
+                    <span className="bg-white rounded-full w-[14px] sm:w-[16px] h-[14px] sm:h-[16px] flex items-center justify-center relative z-10 flex-shrink-0 -ml-1">
                     </span>
-                    <div className="absolute right-1.5 top-1/2 -translate-y-1/2 w-7 h-7 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
+                    <div className="absolute right-1 sm:right-1.5 top-1/2 -translate-y-1/2 w-6 sm:w-7 h-6 sm:h-7 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
                   </Link>
-                  <div className="flex items-center gap-1.5 mt-2">
-                    <a href="https://www.trustpilot.com/review/sharksbookpublishers.com" target="_blank" rel="noopener noreferrer">
-                      <Image src={imgTrustpilot} alt="Trustpilot" width={40} height={12} className="object-contain cursor-pointer hover:opacity-80 transition-opacity" />
-                    </a>
-                    <a href="https://www.bark.com/en/us/company/sharks-book-publishers-/bvbAb3/?review_source=share_link" target="_blank" rel="noopener noreferrer">
-                      <Image src={imgBark} alt="Bark" width={28} height={8} className="object-contain cursor-pointer hover:opacity-80 transition-opacity" />
-                    </a>
-                  </div>
                 </div>
               </div>
               {/* Right Column: Hand and Book Images */}
@@ -447,9 +473,9 @@ export default function Header({
           </div>
 
           {/* Desktop: Original layout */}
-          <div className="hidden lg:block absolute top-[300px] left-20 w-[781px] z-50 slide-in-left">
+          <div className="hidden lg:block absolute top-[220px] xl:top-[240px] left-20 w-[781px] z-50 slide-in-left">
             
-            <h1 className="text-white text-[94px] leading-[0.921] pt-0" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, ...textShadow }}>
+            <h1 className="text-white text-[70px] xl:text-[75px] leading-[1.1] pt-0 -mt-[10px]" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, ...textShadow }}>
               {heroTitle.includes('$4,000') ? (
                 <>
                   {heroTitle.split('$4,000')[0]}
@@ -465,12 +491,32 @@ export default function Header({
                   )}
                 </>
               ) : (() => {
-                // Handle "24 Hours" first
-                if (heroTitle.includes('24 Hours')) {
+                // Format title in 3 lines: "Assured Sales & Publishing" / "in 24 Hours or We'll Work" / "For Free!"
+                if (heroTitle.includes('Assured Sales & Publishing') && heroTitle.includes('24 Hours') && heroTitle.includes('For Free')) {
+                  return <>
+                    Assured Sales & Publishing<br />
+                    in <span className="text-[#35c4dd] font-bold">24 Hours</span> or We'll Work<br />
+                    For <span className="text-[#35c4dd] font-bold">Free</span>!
+                  </>;
+                } else if (heroTitle.includes('Assured Sales & Publishing') && heroTitle.includes('24 hours') && heroTitle.includes('For free')) {
+                  return <>
+                    Assured Sales & Publishing<br />
+                    in <span className="text-[#35c4dd] font-bold">24 hours</span> or We'll Work<br />
+                    For <span className="text-[#35c4dd] font-bold">free</span>!
+                  </>;
+                } else if (heroTitle.includes('24 Hours')) {
                   const before24 = heroTitle.split('24 Hours')[0];
                   const after24 = heroTitle.split('24 Hours')[1];
                   // Check if "Free" is in the remaining text
-                  if (after24.includes('Free')) {
+                  if (after24.includes(' For Free')) {
+                    const beforeForFree = after24.split(' For Free')[0];
+                    const afterFree = after24.split(' For Free')[1];
+                    return <>{before24}<span className="text-[#35c4dd] font-bold">24 Hours</span>{beforeForFree}<br /> For <span className="text-[#35c4dd] font-bold">Free</span>{afterFree}</>;
+                  } else if (after24.includes(' For free')) {
+                    const beforeForFree = after24.split(' For free')[0];
+                    const afterFree = after24.split(' For free')[1];
+                    return <>{before24}<span className="text-[#35c4dd] font-bold">24 Hours</span>{beforeForFree}<br /> For <span className="text-[#35c4dd] font-bold">free</span>{afterFree}</>;
+                  } else if (after24.includes('Free')) {
                     const beforeFree = after24.split('Free')[0];
                     const afterFree = after24.split('Free')[1];
                     return <>{before24}<span className="text-[#35c4dd] font-bold">24 Hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">Free</span>{afterFree}</>;
@@ -483,7 +529,15 @@ export default function Header({
                 } else if (heroTitle.includes('24 hours')) {
                   const before24 = heroTitle.split('24 hours')[0];
                   const after24 = heroTitle.split('24 hours')[1];
-                  if (after24.includes('Free')) {
+                  if (after24.includes(' For Free')) {
+                    const beforeForFree = after24.split(' For Free')[0];
+                    const afterFree = after24.split(' For Free')[1];
+                    return <>{before24}<span className="text-[#35c4dd] font-bold">24 hours</span>{beforeForFree}<br /> For <span className="text-[#35c4dd] font-bold">Free</span>{afterFree}</>;
+                  } else if (after24.includes(' For free')) {
+                    const beforeForFree = after24.split(' For free')[0];
+                    const afterFree = after24.split(' For free')[1];
+                    return <>{before24}<span className="text-[#35c4dd] font-bold">24 hours</span>{beforeForFree}<br /> For <span className="text-[#35c4dd] font-bold">free</span>{afterFree}</>;
+                  } else if (after24.includes('Free')) {
                     const beforeFree = after24.split('Free')[0];
                     const afterFree = after24.split('Free')[1];
                     return <>{before24}<span className="text-[#35c4dd] font-bold">24 hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">Free</span>{afterFree}</>;
@@ -493,6 +547,12 @@ export default function Header({
                     return <>{before24}<span className="text-[#35c4dd] font-bold">24 hours</span>{beforeFree}<span className="text-[#35c4dd] font-bold">free</span>{afterFree}</>;
                   }
                   return <>{before24}<span className="text-[#35c4dd] font-bold">24 hours</span>{after24}</>;
+                } else if (heroTitle.includes(' For Free')) {
+                  const parts = heroTitle.split(' For Free');
+                  return <>{parts[0]}<br /> For <span className="text-[#35c4dd] font-bold">Free</span>{parts[1]}</>;
+                } else if (heroTitle.includes(' For free')) {
+                  const parts = heroTitle.split(' For free');
+                  return <>{parts[0]}<br /> For <span className="text-[#35c4dd] font-bold">free</span>{parts[1]}</>;
                 } else if (heroTitle.includes('Free')) {
                   const parts = heroTitle.split('Free');
                   return <>{parts[0]}<span className="text-[#35c4dd] font-bold">Free</span>{parts[1]}</>;
@@ -503,40 +563,32 @@ export default function Header({
                 return heroTitle;
               })()}
             </h1>
-             <p className="hidden lg:block mt-8 text-white text-[18px] leading-[28px] max-w-[685px] font-medium" style={{ fontFamily: "'Barlow', sans-serif", ...textShadow }}>
+             <p className="hidden lg:block mt-[25px] text-white text-[16px] xl:text-[18px] leading-[26px] xl:leading-[28px] max-w-[685px] font-medium" style={{ fontFamily: "'Barlow', sans-serif", ...textShadow }}>
                Focus on your idea while we take care of writing, editing, design and publishing, all within 24 hours.
              </p>
-            <div className="flex items-center gap-6 mt-12">
+            <div className="flex items-center gap-4 xl:gap-6 mt-[25px]">
             <Link 
               href="/contact"
-              className="group flex items-center justify-between w-[220px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
+              className="group flex items-center justify-between w-[200px] xl:w-[220px] h-[48px] xl:h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-lg xl:text-xl shadow-lg overflow-hidden relative p-2"
             >
                 <span className="relative z-10 pl-3 whitespace-nowrap" style={{ fontFamily: "'Barlow', sans-serif" }}>Publish My Book</span>
-                <span className="bg-white rounded-full w-[24px] h-[24px] flex items-center justify-center relative z-10">
+                <span className="bg-white rounded-full w-[22px] xl:w-[24px] h-[22px] xl:h-[24px] flex items-center justify-center relative z-10">
                 </span>
                 <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
               </Link>
               <button 
-                className="flex items-center justify-between w-[170px] h-[52px] bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg"
+                className="flex items-center justify-between w-[160px] xl:w-[170px] h-[48px] xl:h-[52px] bg-white rounded-full border-2 border-[#35c4dd] p-2 shadow-lg"
                 onClick={() => {
                   if (typeof window !== 'undefined' && (window as any).Tawk_API) {
                     (window as any).Tawk_API.maximize();
                   }
                 }}
               >
-                  <span className="pl-5 text-[#063f4a] font-bold text-xl" style={{ fontFamily: "'Barlow', sans-serif" }}>Live Chat</span>
-                  <div className="w-[40px] h-[40px] bg-[#063f4a] rounded-full flex items-center justify-center">
-                      <Image src={imgChatCircleDots} alt="chat icon" width={24} height={24} />
+                  <span className="pl-4 xl:pl-5 text-[#063f4a] font-bold text-lg xl:text-xl" style={{ fontFamily: "'Barlow', sans-serif" }}>Live Chat</span>
+                  <div className="w-[36px] xl:w-[40px] h-[36px] xl:h-[40px] bg-[#063f4a] rounded-full flex items-center justify-center">
+                      <Image src={imgChatCircleDots} alt="chat icon" width={22} height={22} className="xl:w-6 xl:h-6" />
                   </div>
               </button>
-            </div>
-            <div className="flex items-center gap-3 mt-3 ml-2">
-              <a href="https://www.trustpilot.com/review/sharksbookpublishers.com" target="_blank" rel="noopener noreferrer">
-                <Image src={imgTrustpilot} alt="Trustpilot" width={80} height={24} className="object-contain cursor-pointer hover:opacity-80 transition-opacity" />
-              </a>
-              <a href="https://www.bark.com/en/us/company/sharks-book-publishers-/bvbAb3/?review_source=share_link" target="_blank" rel="noopener noreferrer">
-                <Image src={imgBark} alt="Bark" width={50} height={15} className="object-contain cursor-pointer hover:opacity-80 transition-opacity" />
-              </a>
             </div>
           </div>
           

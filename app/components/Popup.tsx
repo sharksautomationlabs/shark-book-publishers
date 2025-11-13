@@ -10,8 +10,9 @@ export default function Popup() {
   const initialScrollYRef = useRef<number | null>(null);
   const [formData, setFormData] = useState({
     name: '',
+    phone: '',
     email: '',
-    phone: ''
+    message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
@@ -51,7 +52,7 @@ export default function Popup() {
   }, []);
 
   // Handle form input changes
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -67,6 +68,10 @@ export default function Popup() {
   const validateForm = (): boolean => {
     if (!formData.name.trim()) {
       setSubmitStatus({ type: 'error', message: 'Name is required' });
+      return false;
+    }
+    if (!formData.phone.trim()) {
+      setSubmitStatus({ type: 'error', message: 'Phone number is required' });
       return false;
     }
     if (!formData.email.trim()) {
@@ -106,12 +111,12 @@ export default function Popup() {
     setSubmitStatus({ type: null, message: '' });
 
     try {
-      // Prepare form data for emailjs (add empty message since it's required)
+      // Prepare form data for emailjs
       const emailData: ContactFormData = {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        message: 'Popup form submission'
+        message: formData.message || 'Popup form submission'
       };
 
       const result = await sendContactEmail(emailData);
@@ -124,8 +129,9 @@ export default function Popup() {
         // Reset form
         setFormData({
           name: '',
+          phone: '',
           email: '',
-          phone: ''
+          message: ''
         });
         // Reset honeypot
         setHoneypotValue('');
@@ -158,39 +164,62 @@ export default function Popup() {
         className="relative max-w-[95vw] sm:max-w-2xl md:max-w-4xl lg:max-w-5xl w-full flex items-center justify-center animate-scaleIn"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
-        <button
-          onClick={() => setShowImagePopup(false)}
-          className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-colors shadow-lg"
-          aria-label="Close popup"
-        >
-          <svg className="w-4 h-4 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 6L6 18M6 6L18 18" stroke="#063f4a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-
         {/* Image Container - Display the image directly */}
         <div className="relative w-full flex items-center justify-center">
+          {/* Desktop Image - ONLY on desktop (1024px and above) - NEVER on mobile */}
           <img
-            src="/images/Popup.png"
-            alt="Popup Image"
-            className="max-w-full max-h-[85vh] sm:max-h-[90vh] w-auto h-auto object-contain"
-            style={{ display: 'block' }}
+            src="/images/popup_final.png"
+            alt="Desktop Popup Image"
+            className="hidden lg:block max-w-full max-h-[98vh] w-auto h-auto object-contain"
+          />
+          {/* Mobile/Tablet Image - ONLY on mobile/tablet (below 1024px) - NEVER on desktop */}
+          <img
+            src="/images/mob_popup.png"
+            alt="Mobile Popup Image"
+            className="block lg:hidden max-w-full max-h-[98vh] w-auto h-auto object-contain"
           />
           
-          {/* Form Fields - Positioned on the image, responsive positioning */}
-          <form onSubmit={handleSubmit} className="absolute left-1/2 translate-x-[calc(-50%+55px)] sm:left-auto sm:translate-x-0 sm:right-[12%] md:right-[15%] lg:right-[18%] top-[58%] sm:top-[52%] md:top-[54%] lg:top-[56%] -translate-y-1/2 w-[30%] sm:w-[85%] md:w-[75%] lg:w-full max-w-[90px] sm:max-w-[260px] md:max-w-[280px] space-y-0.5 sm:space-y-3 md:space-y-4">
+          {/* Close Button - Pixel perfect positioning for mobile and desktop */}
+          {/* Mobile/Tablet: Positioned for mob_popup.png */}
+          {/* Desktop: Positioned for popup_final.png */}
+          <button
+            onClick={() => setShowImagePopup(false)}
+            className="absolute z-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-colors shadow-lg cursor-pointer
+              top-[60px] right-[103px] w-4 h-4
+              sm:top-[85px] sm:right-[22px] sm:w-7 sm:h-7
+              md:top-[92px] md:right-[28px] md:w-8 md:h-8
+              lg:top-[111px] lg:right-[9%] lg:w-8 lg:h-8 lg:-translate-x-[65px]"
+            aria-label="Close popup"
+          >
+            <svg className="w-2.5 h-2.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-5 lg:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 6L6 18M6 6L18 18" stroke="#063f4a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          
+          {/* Form Fields - Pixel perfect positioning for mobile, tablet, and desktop */}
+          {/* Mobile: Fields positioned in gradient box of mob_popup.png - Pixel Perfect */}
+          {/* Desktop: Fields positioned in gradient box of popup_final.png - Pixel Perfect */}
+          <form onSubmit={handleSubmit} className="absolute z-10
+            left-[48%] top-[calc(52%+10px)] translate-x-[calc(-50%+20px)] w-[30%] max-w-[90px] pt-0.5 space-y-0
+            sm:right-[6.5%] sm:top-[31%] sm:w-[37%] sm:max-w-[275px] sm:pt-3.5 sm:space-y-[13px] sm:left-auto sm:translate-x-0
+            md:right-[7.5%] md:top-[29%] md:w-[35%] md:max-w-[315px] md:pt-5.5 md:space-y-[13px]
+            lg:right-[9%] lg:top-[30%] lg:w-[32%] lg:max-w-[380px] lg:pt-8 lg:space-y-[13px] lg:-translate-x-[70px]">
             {/* Status Message */}
             {submitStatus.type && (
-              <div className={`p-1 sm:p-3 rounded-lg text-[8px] sm:text-xs font-medium ${
-                submitStatus.type === 'success' 
+              <div className={`rounded-lg font-medium
+                p-0.5 text-[6px]
+                sm:p-2 sm:text-[10px]
+                md:p-2.5 md:text-xs
+                lg:p-3 lg:text-xs
+                ${submitStatus.type === 'success' 
                   ? 'bg-green-100 text-green-800 border border-green-200' 
                   : 'bg-red-100 text-red-800 border border-red-200'
-              }`}>
+                }`}>
                 {submitStatus.message}
               </div>
             )}
             
+            {/* Name Field - Required */}
             <div>
               <input
                 type="text"
@@ -199,11 +228,35 @@ export default function Popup() {
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full px-1 py-0.5 sm:px-4 sm:py-3 md:py-3 rounded-full border border-gray-300 sm:border-2 focus:border-[#35c4dd] focus:outline-none text-[9px] sm:text-base text-[#063f4a] placeholder-gray-400 bg-white/98 backdrop-blur-sm transition-all duration-200"
+                className="w-full rounded-full border border-gray-300 sm:border-2 focus:border-[#35c4dd] focus:outline-none text-[#063f4a] placeholder-gray-400 bg-white/98 backdrop-blur-sm transition-all duration-200
+                  px-1 py-0 text-[9px] leading-tight
+                  sm:px-4 sm:py-1 sm:text-sm sm:leading-normal
+                  md:px-5 md:py-1.5 md:text-base md:leading-normal
+                  lg:px-5 lg:py-1 lg:text-lg lg:leading-normal"
                 style={{ fontFamily: "'Barlow', sans-serif" }}
               />
             </div>
-            <div>
+
+            {/* Phone Field - Required */}
+            <div className="-mt-[4px] sm:mt-0">
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                required
+                className="w-full rounded-full border border-gray-300 sm:border-2 focus:border-[#35c4dd] focus:outline-none text-[#063f4a] placeholder-gray-400 bg-white/98 backdrop-blur-sm transition-all duration-200
+                  px-1 py-0 text-[9px] leading-tight
+                  sm:px-4 sm:py-1 sm:text-sm sm:leading-normal
+                  md:px-5 md:py-1.5 md:text-base md:leading-normal
+                  lg:px-5 lg:py-1 lg:text-lg lg:leading-normal"
+                style={{ fontFamily: "'Barlow', sans-serif" }}
+              />
+            </div>
+
+            {/* Email Field - Required */}
+            <div className="-mt-[4px] sm:mt-0">
               <input
                 type="email"
                 name="email"
@@ -211,18 +264,28 @@ export default function Popup() {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-1 py-0.5 sm:px-4 sm:py-3 md:py-3 rounded-full border border-gray-300 sm:border-2 focus:border-[#35c4dd] focus:outline-none text-[9px] sm:text-base text-[#063f4a] placeholder-gray-400 bg-white/98 backdrop-blur-sm transition-all duration-200"
+                className="w-full rounded-full border border-gray-300 sm:border-2 focus:border-[#35c4dd] focus:outline-none text-[#063f4a] placeholder-gray-400 bg-white/98 backdrop-blur-sm transition-all duration-200
+                  px-1 py-0 text-[9px] leading-tight
+                  sm:px-4 sm:py-1 sm:text-sm sm:leading-normal
+                  md:px-5 md:py-1.5 md:text-base md:leading-normal
+                  lg:px-5 lg:py-1 lg:text-lg lg:leading-normal"
                 style={{ fontFamily: "'Barlow', sans-serif" }}
               />
             </div>
-            <div>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone"
-                value={formData.phone}
+
+            {/* Message Field - Hidden on mobile, visible on desktop */}
+            <div className="hidden sm:block">
+              <textarea
+                name="message"
+                placeholder="Message"
+                value={formData.message}
                 onChange={handleInputChange}
-                className="w-full px-1 py-0.5 sm:px-4 sm:py-3 md:py-3 rounded-full border border-gray-300 sm:border-2 focus:border-[#35c4dd] focus:outline-none text-[9px] sm:text-base text-[#063f4a] placeholder-gray-400 bg-white/98 backdrop-blur-sm transition-all duration-200"
+                rows={3}
+                className="w-full rounded-lg border border-gray-300 sm:border-2 focus:border-[#35c4dd] focus:outline-none text-[#063f4a] placeholder-gray-400 bg-white/98 backdrop-blur-sm transition-all duration-200 resize-none overflow-y-auto
+                  px-1 py-0 text-[9px] max-h-[38px] leading-tight
+                  sm:px-4 sm:py-0 sm:text-sm sm:max-h-[78px] sm:leading-normal
+                  md:px-5 md:py-0 md:text-base md:max-h-[98px] md:leading-normal
+                  lg:px-5 lg:py-0 lg:text-lg lg:max-h-[110px] lg:leading-normal"
                 style={{ fontFamily: "'Barlow', sans-serif" }}
               />
             </div>
@@ -240,23 +303,27 @@ export default function Popup() {
             </div>
 
             {/* Submit Button */}
-            <div className="pt-0">
+            <div className="pt-0 mt-[5px] sm:-mt-2 md:-mt-2 lg:-mt-2">
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className={`group flex items-center justify-center sm:justify-between w-full h-[11px] sm:h-[48px] md:h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-[9px] sm:text-lg md:text-xl shadow-lg overflow-hidden relative p-0.5 sm:p-2 transition-all duration-200 ${
+                className={`group flex items-center justify-center w-full bg-[#35c4dd] text-[#063f4a] font-bold rounded-full shadow-lg overflow-hidden relative transition-all duration-200
+                  h-[11px] text-[9px] p-0.5 leading-tight
+                  sm:h-[38px] sm:text-sm sm:p-1.5 sm:justify-between sm:leading-normal
+                  md:h-[42px] md:text-base md:p-2 md:justify-between md:leading-normal
+                  lg:h-[44px] lg:text-xl lg:p-2 lg:justify-between lg:leading-normal ${
                   isSubmitting 
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
                     : 'hover:bg-[#2db3c9] active:scale-[0.98]'
                 }`}
                 style={{ fontFamily: "'Barlow', sans-serif" }}
               >
-                <span className="relative z-10 pl-0 sm:pl-3 whitespace-nowrap">
+                <span className="relative z-10 pl-0 sm:pl-4 whitespace-nowrap">
                   {isSubmitting ? 'Sending...' : 'Submit'}
                 </span>
                 {!isSubmitting && (
                   <>
-                    <span className="hidden sm:flex bg-white rounded-full w-[20px] h-[20px] md:w-[24px] md:h-[24px] items-center justify-center relative z-10 flex-shrink-0 -ml-2">
+                    <span className="hidden sm:flex bg-white rounded-full w-[22px] h-[22px] md:w-[26px] md:h-[26px] items-center justify-center relative z-10 flex-shrink-0 -ml-2">
                     </span>
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
                   </>

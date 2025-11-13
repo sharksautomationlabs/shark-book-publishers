@@ -314,7 +314,7 @@ export default function Contact({ customHeading, customSubtext }: FooterProps = 
                 </div>
                 <div>
                   <h3 className="font-bold text-sm sm:text-base lg:text-lg">Phone:</h3>
-                  <p className="text-sm sm:text-base lg:text-lg">+1 (469) 452-7618</p>
+                  <p className="text-sm sm:text-base lg:text-lg">(469) 452-7618</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
