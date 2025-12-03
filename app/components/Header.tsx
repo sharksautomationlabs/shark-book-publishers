@@ -150,6 +150,7 @@ export default function Header({
                         <Link href="/shopify" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Books</Link>
                         <Link href="/services" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Services</Link>
                         <Link href="/tiktok" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Authors</Link>
+                        <Link href="/book-to-video" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Book to Video</Link>
                         <Link href="/walmart" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>News & Events</Link>
                         <Link href="/identity" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Careers</Link>
                         <Link href="/contact" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Contact</Link>
@@ -285,6 +286,14 @@ export default function Header({
                       onClick={() => setIsMobileNavOpen(false)}
                     >
                       Authors
+                    </Link>
+                    <Link 
+                      href="/book-to-video" 
+                      className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
+                      style={{ fontFamily: "'Barlow', sans-serif" }}
+                      onClick={() => setIsMobileNavOpen(false)}
+                    >
+                      Book to Video
                     </Link>
                     <Link 
                       href="/walmart" 

@@ -38,12 +38,20 @@ interface HeaderProps {
   heroTitle?: string;
   heroSubtitle?: string;
   topNavText?: string;
+  customHeight?: string;
+  titleSize?: string;
+  subtitleSize?: string;
+  hideBackground?: boolean;
 }
 
 export default function AmazonHeader({ 
   heroTitle = "Guaranteed Sales & Publishing in 72 Hours or We'll Work For Free!",
   heroSubtitle = "Keep scrolling—your path to financial freedom is just ahead. By the time you've explored 25% of this page, you'll discover the hidden gem that could change your life.",
-  topNavText = "Professional Book Publishing Services"
+  topNavText = "Professional Book Publishing Services",
+  customHeight,
+  titleSize,
+  subtitleSize,
+  hideBackground = false
 }: HeaderProps) {
   const { videoRef, isInView } = useVideoLazyLoading();
   const textShadow = { textShadow: '0px 2px 5px rgba(0, 0, 0, 0.5)' };
@@ -92,28 +100,34 @@ export default function AmazonHeader({
     transform: `translateX(${-scrollPosition * scrollMultiplierTransform}px)`
   };
 
+  const heightClass = customHeight || "h-[45vh] lg:h-[82vh]";
+  
   return (
     // MODIFIED: Removed top margin from mobile
     <div className="w-full bg-[#052126] flex justify-center">
-      <div className="relative w-full max-w-[1920px] h-[45vh] lg:h-[82vh] overflow-hidden select-none">
+      <div className={`relative w-full max-w-[1920px] ${heightClass} overflow-hidden select-none ${hideBackground ? 'bg-transparent' : ''}`}>
         
-        <div className="absolute inset-0 z-0">
-          <video 
-            ref={videoRef}
-            autoPlay={isInView}
-            loop 
-            muted 
-            playsInline
-            preload="metadata"
-            crossOrigin="anonymous"
-            className="w-full h-full object-cover"
-            poster="/images/bi-vid.jpeg"
-            {...handleVideoEvents}
-          >
-            <source src="/images/bi-vid.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="absolute inset-0 bg-[#052126]/60 z-10" />
+        {!hideBackground && (
+          <>
+            <div className="absolute inset-0 z-0">
+              <video 
+                ref={videoRef}
+                autoPlay={isInView}
+                loop 
+                muted 
+                playsInline
+                preload="metadata"
+                crossOrigin="anonymous"
+                className="w-full h-full object-cover"
+                poster="/images/bi-vid.jpeg"
+                {...handleVideoEvents}
+              >
+                <source src="/images/bi-vid.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div className="absolute inset-0 bg-[#052126]/60 z-10" />
+          </>
+        )}
 
         <div className="relative z-20 w-full h-full">
 
@@ -134,24 +148,25 @@ export default function AmazonHeader({
               </div>
             </div>
 
-            <div className="mt-2 lg:mt-6 flex items-center justify-between">
-                <div className="w-[200px] h-[145px] md:w-[220px] md:h-[165px] lg:w-[260px] lg:h-[195px] relative fade-in -ml-1 lg:-ml-1">
+            <div className="mt-2 lg:mt-6 flex items-center justify-between gap-2 lg:gap-3">
+                <div className="w-[160px] h-[120px] md:w-[180px] md:h-[140px] lg:w-[160px] lg:h-[130px] relative fade-in -ml-1 lg:-ml-1 flex-shrink-0">
                     <Image src={imgImage1} alt="Shark Book Publishers Logo" fill className="object-contain" priority />
                 </div>
-                <div className="hidden lg:flex w-[1080px] h-[100px] bg-white/20 backdrop-blur-sm rounded-2xl items-center justify-end px-10 gap-8 border-2 border-white">
-                    <div className="flex items-center gap-5 text-white text-[18px] font-medium" style={{ fontFamily: "'Barlow', sans-serif" }}>
+                <div className="hidden lg:flex flex-1 min-w-0 h-[100px] bg-white/20 backdrop-blur-sm rounded-2xl items-center justify-between px-3 xl:px-6 2xl:px-8 gap-3 xl:gap-5 2xl:gap-6 border-2 border-white ml-1 xl:ml-2">
+                    <div className="flex items-center gap-2 xl:gap-3 2xl:gap-4 text-white text-[14px] xl:text-[16px] 2xl:text-[18px] font-medium whitespace-nowrap flex-shrink" style={{ fontFamily: "'Barlow', sans-serif" }}>
                         <Link href="/" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Home</Link>
                         <Link href="/about" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>About Us</Link>
                         <Link href="/amazon" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Testimonials</Link>
                         <Link href="/shopify" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Books</Link>
                         <Link href="/services" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Services</Link>
                         <Link href="/tiktok" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Authors</Link>
+                        <Link href="/book-to-video" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Book to Video</Link>
                         <Link href="/walmart" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>News & Events</Link>
                         <Link href="/identity" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Careers</Link>
                         <Link href="/contact" className="hover:text-[#35c4dd] whitespace-nowrap" style={textShadow}>Contact</Link>
                     </div>
                      <button 
-                        className="group flex items-center justify-between w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-xl shadow-lg overflow-hidden relative p-2"
+                        className="group flex items-center justify-between w-[170px] xl:w-[180px] h-[52px] bg-[#35c4dd] text-[#063f4a] font-bold rounded-full text-lg xl:text-xl shadow-lg overflow-hidden relative p-2 flex-shrink-0"
                         onClick={() => {
                           if (typeof window !== 'undefined' && (window as any).Calendly) {
                             (window as any).Calendly.initPopupWidget({
@@ -170,7 +185,7 @@ export default function AmazonHeader({
                         <div className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full transform scale-0 group-hover:scale-[25] transition-transform duration-[1000ms] ease-in-out origin-center group-hover:duration-[1500ms]"></div>
                     </button>
                 </div>
-                <div className="lg:hidden">
+                <div className="lg:hidden flex-shrink-0">
                     <button 
                       onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
                       className="p-2"
@@ -283,6 +298,14 @@ export default function AmazonHeader({
                       Authors
                     </Link>
                     <Link 
+                      href="/book-to-video" 
+                      className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
+                      style={{ fontFamily: "'Barlow', sans-serif" }}
+                      onClick={() => setIsMobileNavOpen(false)}
+                    >
+                      Book to Video
+                    </Link>
+                    <Link 
                       href="/walmart" 
                       className="block text-white text-base font-medium hover:text-[#35c4dd] transition-colors py-1"
                       style={{ fontFamily: "'Barlow', sans-serif" }}
@@ -348,9 +371,9 @@ export default function AmazonHeader({
             </div>
           </div>
 
-          <div className="absolute top-1/2 -translate-y-1/2 left-5 w-1/2 lg:top-[300px] lg:left-20 lg:w-[781px] lg:translate-y-0 z-50 slide-in-left">
+          <div className="absolute top-[calc(50%-30px)] -translate-y-1/2 left-5 w-1/2 lg:top-[calc(300px-30px)] lg:left-20 lg:w-[781px] lg:translate-y-0 z-50 slide-in-left">
             
-            <h1 className="text-white text-3xl leading-tight pt-10 lg:text-[94px] lg:leading-[0.921] lg:pt-0" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, ...textShadow }}>
+            <h1 className={`text-white leading-tight pt-10 lg:pt-0 ${titleSize || 'text-3xl lg:text-[94px] lg:leading-[0.921]'}`} style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 600, ...textShadow }}>
               {heroTitle.includes('$4,000') ? (
                 <>
                   {heroTitle.split('$4,000')[0]}
@@ -401,10 +424,21 @@ export default function AmazonHeader({
                   const parts = heroTitle.split('free');
                   return <>{parts[0]}<span className="text-[#35c4dd] font-bold">free</span>{parts[1]}</>;
                 }
+                // Handle line breaks (using || as delimiter)
+                if (heroTitle.includes('||')) {
+                  const lines = heroTitle.split('||');
+                  return (
+                    <>
+                      {lines[0]}
+                      <br />
+                      {lines[1]}
+                    </>
+                  );
+                }
                 return heroTitle;
               })()}
             </h1>
-             <p className="hidden lg:block mt-8 text-white text-[28px] leading-[38px] max-w-[685px] font-light" style={{ fontFamily: "'Barlow', sans-serif", ...textShadow }}>
+             <p className={`mt-4 lg:mt-8 text-white max-w-[685px] font-light ${subtitleSize || 'text-sm lg:text-[28px] leading-relaxed lg:leading-[38px]'}`} style={{ fontFamily: "'Barlow', sans-serif", ...textShadow }}>
                {heroSubtitle}
              </p>
           </div>
