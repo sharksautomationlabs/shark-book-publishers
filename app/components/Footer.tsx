@@ -323,7 +323,7 @@ export default function Contact({ customHeading, customSubtext }: FooterProps = 
                 <LocationIcon />
                 <div>
                   <h3 className="font-bold text-base lg:text-lg">Address:</h3>
-                  <p className="text-base lg:text-lg">22023 Rustic Canyon Ln Richmond, TX 77469, USA.</p>
+                  <p className="text-base lg:text-lg"></p>
                 </div>
               </div>
             </div>

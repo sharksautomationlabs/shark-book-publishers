@@ -246,7 +246,7 @@ export default function PrivacyPolicyPage() {
                 <div className="bg-[#f8fafc] rounded-lg p-6" style={{ fontFamily: "'Barlow', sans-serif" }}>
                   <p className="text-[#2c2020] mb-2"><strong>Email:</strong> info@ecomsharkss.com</p>
                   <p className="text-[#2c2020] mb-2"><strong>Phone:</strong> (469) 480-7938</p>
-                  <p className="text-[#2c2020]"><strong>Address:</strong> 22023 Rustic Canyon Ln, Richmond, TX 77469, USA</p>
+                  <p className="text-[#2c2020]"><strong>Address:</strong> </p>
                 </div>
               </motion.div>
 
